@@ -1,0 +1,17 @@
+{
+    "name": "multisafepay/magento2",
+    "description": "MultiSafepay module suite for Magento 2",
+    "version": "2.0.0",
+    "require": {
+        "multisafepay/php-sdk": "3.0.2",
+        "multisafepay/magento2-core": "1.0.0",
+        "multisafepay/magento2-frontend": "1.0.0",
+        "multisafepay/magento2-adminhtml": "1.0.0",
+        "multisafepay/magento2-catalog-inventory": "1.0.0",
+        "multisafepay/magento2-msi": "1.0.0"
+    },
+    "type": "library",
+    "license": [
+        "OSL-3.0"
+    ]
+}
