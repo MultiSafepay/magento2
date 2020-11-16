@@ -18,7 +18,7 @@ The supported Payment Methods & Giftcards for this plugin can be found over here
 ## Requirements
 - To use the plugin you need a MultiSafepay account. You can create a test account on https://testmerchant.multisafepay.com/signup
 - Magento Open Source version 2.2.x & 2.3.x & 2.4.x
-- PHP 7.2+ (PHP 7.3 or higher recommended)
+- PHP 7.1+
 
 ## Module suite
 
