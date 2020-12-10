@@ -22,15 +22,6 @@ All notable changes to this project will be documented in this file.
 - Added in3 to checkout
 - Added support for preselected default payment method in the checkout
 
-### ConnectCore [2.0.1]
-#### Fixed
-- Fixed instantiation error of fileDriver interface in backend and after placing a transaction
-- Disabled Billing Suite payment methods for admin backend orders
-
-### ConnectAdminHtml [1.1.1]
-#### Fixed
-- Fixed instantiation error of fileDriver interface in backend and after placing a transaction
-
 ## [2.1.1] - 2020-11-30
 
 ### ConnectCore [2.0.1]
