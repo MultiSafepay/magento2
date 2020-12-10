@@ -1,6 +1,36 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.2.0] - 2020-12-10
+
+### ConnectCore [2.1.0]
+#### Added
+- Added in3 payment method
+- Added support for preselected default payment method in the checkout
+
+#### Fixed
+- IP Address is now filtered, preventing error when retrieving 2 ip addresses from the customer.
+- Fix error 'Type "" is not a known type.' when placing a backend order with a non-MultiSafepay payment method.
+
+### ConnectAdminHtml [1.2.0]
+#### Added
+- Added configuration for in3 payment method
+- Add configuration option for choosing default preselected payment method in the checkout
+
+### ConnectFrontend [1.2.0]
+#### Added
+- Added in3 to checkout
+- Added support for preselected default payment method in the checkout
+
+### ConnectCore [2.0.1]
+#### Fixed
+- Fixed instantiation error of fileDriver interface in backend and after placing a transaction
+- Disabled Billing Suite payment methods for admin backend orders
+
+### ConnectAdminHtml [1.1.1]
+#### Fixed
+- Fixed instantiation error of fileDriver interface in backend and after placing a transaction
+
 ## [2.1.1] - 2020-11-30
 
 ### ConnectCore [2.0.1]
