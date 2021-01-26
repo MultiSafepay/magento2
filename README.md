@@ -31,6 +31,13 @@ The new MultiSafepay Magento 2 plugin consists of several modules:
 * [multisafepay-magento2-catalog-inventory](https://github.com/MultiSafepay/magento2-catalog-inventory) (Handles stock when MSI is disabled)
 * [multisafepay-magento2](https://github.com/MultiSafepay/magento2) (Meta package which installs all the above)
 
+## Upgrading from plugin version v1.14 and below
+To avoid conflicts between plugin v1.14 (and below) and this new version,
+we recommend uninstalling the current plugin prior to installing this new version.
+
+Please be aware that it will not be possible to do an online refund for MultiSafepay orders that were created prior to installation of the new plugin.
+Those orders can only be refunded from your MultiSafepay Control.
+
 ## Installation
 If you are a developer, we recommend installing the various composer packages separately so that you can finetune which modules are needed and which are not.
 
@@ -52,7 +59,7 @@ php bin/magento setup:upgrade
 php bin/magento setup:di:compile
 php bin/magento setup:static-content:deploy
 ```
-    
+
 ### Stock handling
 
 If you have disabled MSI inside Magento 2, then you can use the following command to disable the MultiSafepay MSI module:
