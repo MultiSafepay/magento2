@@ -1,6 +1,42 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.3.0] - 2021-01-26
+
+### ConnectCore [2.2.0]
+#### Added
+- Added support for Mageplaza Reward Points
+
+#### Fixed
+- Fixed wrong store locale being sent in admin backend orders
+- Fixed Uncaught TypeError with string to float conversion for Fooman Surcharge
+- Fixed order e-mails not being sent in some cases for backend orders
+
+#### Changed
+- Added retrieval of icons from local directory for Givacard, Wellness gift card and Winkel Cheque
+- Improved custom totals and added support for exclusions
+
+### ConnectAdminHtml [1.3.0]
+#### Added
+- Added sensitive and environment types to configuration fields
+- Added configuration field for excluding custom totals
+
+### ConnectFrontend [1.3.0]
+#### Added
+- Added function to restore quote when using back button on the MultiSafepay payment page
+- Added icons for Winkel Cheque, Wellness gift card and Givacard
+
+#### Fixed
+- Fixed bug "Uncaught TypeError: Cannot read property 'observe' of undefined"
+- Fixed duplicate id's for birthday checkout field for in3 and Afterpay
+
+#### Changed
+- Changed the way checkout fields are observed and default method is selected.
+- Updated Trustly logo to new branding standards
+
+#### Removed
+- Removed duplicate check for sending invoice e-mail
+
 ## [2.2.0] - 2020-12-10
 
 ### ConnectCore [2.1.0]
