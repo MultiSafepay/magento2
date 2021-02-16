@@ -1,6 +1,26 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.3.1] - 2021-02-16
+
+#### Added
+-  GraphQL support in a separate module [multisafepay-magento2-graphql](https://github.com/MultiSafepay/magento2-graphql)
+
+### ConnectCore [2.2.1]
+#### Fixed
+- Fixed undefined index for Afterpay and in3
+- Fixed wrong api key being used for MultiSafepay requests with a multi store setup
+- Fixed wrong store locale being sent in orders that were created in the admin backend
+
+### ConnectAdminHtml [1.3.1]
+#### Fixed
+- Alphabetically ordered the payment gateways in the 'Payment Gateways' tab and 'Default selected method' list
+
+### ConnectFrontend [1.3.1]
+#### Fixed
+- Fixed wrong api key being used for MultiSafepay requests with a multi store setup
+- Fixed order status sometimes not going to processing after it has been invoiced
+
 ## [2.3.0] - 2021-01-26
 
 ### ConnectCore [2.2.0]
