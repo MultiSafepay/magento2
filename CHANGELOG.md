@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 #### Added
 - Added 3 generic gateways and 3 generic giftcards.
 - Added customizable pending_payment status when redirecting to the payment page.
-- Added the possibility to modify the return_url and cancel_url for PWA users.
+- Added the possibility to modify the "Success page" and cancel payment return URLs for PWA storefronts.
 - Added compatibility for the MagePrince ExtrafeePro extension. (Payment fees are now correctly displayed in the checkout)
 
 #### Fixed
