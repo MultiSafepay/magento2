@@ -1,6 +1,25 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.5.0] - 2021-03-11
+#### Added
+- Added 3 generic gateways and 3 generic giftcards.
+- Added customizable pending_payment status when redirecting to the payment page.
+- Added the possibility to modify the "Success page" and cancel payment return URLs for PWA storefronts.
+- Added compatibility for the MagePrince ExtrafeePro extension. (Payment fees are now correctly displayed in the checkout)
+
+#### Fixed
+- Fixed missing preselected flag for creditcard gateways
+- Fixed wrong default title in the config for American Express.
+- Fixed a checkout error when creditcard is preselected
+- Fixed a bug where recurring methods that are used for Magento Vault were always active
+
+#### Changed
+- Code refactoring in the generic gateways and transaction shopping cart parts of the plugin for code improvement, readability and better performance.
+- Refactored the payment components by decreasing the amount of javascript files
+- Changed composer dependencies to support Magento 2.2.
+- Removed the recurring methods from the default preselected payment method list.
+
 ## [2.4.0] - 2021-02-22
 ### Added
 - Added generic gateway feature for the possibility to add a gateway, which you can customize yourself.
