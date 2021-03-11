@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 - Fixed missing preselected flag for creditcard gateways
 - Fixed wrong default title in the config for American Express.
 - Fixed a checkout error when creditcard is preselected
+- Fixed a bug where recurring methods that are used for Magento Vault were always active
 
 #### Changed
 - Code refactoring in the generic gateways and transaction shopping cart parts of the plugin for code improvement, readability and better performance.
