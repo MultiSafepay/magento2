@@ -1,6 +1,24 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.7.0] - 2021-04-09
+### Added
+- Added option to set no default for default selected payment method.
+- Added a download button to download a zip file with the MultiSafepay log files
+
+### Fixed
+- Fixed an error that happened when trying to open orders with an expired transaction.
+- Fixed issue related to a missed tax amount in Fooman Surcharge custom totals
+- Fixed error when choosing 'miss' gender with Afterpay
+- Fixed an error that happened during checkout when there is a custom total in the cart with float as a string value ("0.000")
+- Fixed issue where default pending status would get used instead of the one from the MultiSafepay config
+
+### Changed
+- For bank transfer payments, the redirect to the payment page has been brought back. Like with Magento 1, customers will now get redirected to the payment page where they can see the bank transfer details.
+
+### Removed
+- Removed order status check and reopening a cancelled order process from the Success controller, since it is already being done by the Notification controller instead.
+
 ## [2.6.0] - 2021-03-26
 ### Added
 - Added support for disabling the shopping cart on the MultiSafepay payment page
