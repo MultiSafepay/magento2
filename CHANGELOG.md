@@ -1,6 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.7.1] - 2021-04-19
+### Changed
+- Code refactored for gateway additional data validators.
+- (dev) Orders are now being retrieved with OrderRepositoryInterface instead of OrderInterfaceFactory
+- (dev) Reduced multiple orderRepository save calls
+
+### Fixed
+- Fixed an issue where the shipment status update was only being done in the adminhtml scope. It will now trigger from all scopes, including the REST API.
+- Fixed validators giving an error when field for choosing specific has been left empty
+- (dev) Fixed DS constant not being available and replaced it with DIRECTORY_SEPARATOR constant
+
 ## [2.7.0] - 2021-04-09
 ### Added
 - Added option to set no default for default selected payment method.
