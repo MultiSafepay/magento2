@@ -20,6 +20,9 @@ The supported Payment Methods & Giftcards for this plugin can be found over here
 - Magento Open Source version 2.2.x & 2.3.x & 2.4.x
 - PHP 7.1+
 
+## Upgrading from plugin version v1.14 and below
+Please read our [dedicated documentation page](https://docs.multisafepay.com/integrations/ecommerce-integrations/magento2/faq/migrating-to-new-plugin/) about all the changes to look out for when switching to our new plugin.
+
 ## Module suite
 
 The new MultiSafepay Magento 2 plugin consists of several modules:
@@ -34,12 +37,18 @@ The new MultiSafepay Magento 2 plugin consists of several modules:
 For GraphQL support there is a separate module:
 * [multisafepay-magento2-graphql](https://github.com/MultiSafepay/magento2-graphql) (Extends and adds GraphQL queries and mutations)
 
-## Upgrading from plugin version v1.14 and below
-To avoid conflicts between plugin v1.14 (and below) and this new version,
-we recommend uninstalling the current plugin prior to installing this new version.
+## Module dependencies
+The meta-package has a dependency on MSI, which means that the MSI modules should be available (but not necessarily enabled) in your store. 
 
-Please be aware that it will not be possible to do an online refund for MultiSafepay orders that were created prior to installation of the new plugin.
-Those orders can only be refunded from your MultiSafepay Control.
+However, if you have removed it with, for example, a composer-replace trick like [yireo/magento2-replace-inventory](https://github.com/yireo/magento2-replace-inventory) or if MSI is not available because you are still running Magento 2.2, you will not be able to install the meta-package.
+In this case it is still possible to integrate with MultiSafepay. 
+You can then install the magento2-frontend module and the magento2-catalog-inventory module, instead of the meta-package.
+
+The magento2-frontend module has a dependency on the magento2-core and magento2-adminhtml module, so they all will be installed.
+And then you need to have a module which handles the stock in some specific cases. 
+Since MSI is not available, you can install the magento2-catalog-inventory module instead.
+
+The installation process is the same for the Magento Commerce version.
 
 ## Installation
 If you are a developer, we recommend installing the various composer packages separately so that you can finetune which modules are needed and which are not.
