@@ -1,6 +1,22 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.8.0] - 2021-05-12
+### Added
+- Added separate phone number field for Afterpay & in3, which will already be filled in if the phone number is present in the billing address.
+- Added notification about new versions of plugin in admin panel.
+- Added System report to downloadable log archive for improved debugging.
+- Added the possibility to change direct gateways method to redirect.
+
+### Fixed
+- Fixed a bug where 'File not found' error would occur when trying to download log files with ROOT path set to 'pub'.
+- Fixed a bug where in some cases the order confirmation e-mail would be sent when a transaction is expired. (Thanks to @basvanpoppel)
+
+### Changed
+- Changed the logs zip archive to be stored temporarily inside the var/tmp directory instead of the root directory.
+- Changed the retrieval of the shipping tax from a calculation based method on the amount to retrieving it via a rate request to improve the accuracy.
+- Changed the info logs into debug and added log the transaction data. Also deleted unnecessary multisafepay-debug.log file.
+
 ## [2.7.1] - 2021-04-19
 ### Changed
 - Code refactored for gateway additional data validators.
