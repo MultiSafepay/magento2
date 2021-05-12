@@ -15,7 +15,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Changed the logs zip archive to be stored temporarily inside the var/tmp directory instead of the root directory.
 - Changed the retrieval of the shipping tax from a calculation based method on the amount to retrieving it via a rate request to improve the accuracy.
-- Changed the info logs into debug and added log the transaction data. Also deleted unnecessary multisafepay-debug.log file.
+- Changed the info logs into debug and added transaction data to the log. Also deleted unnecessary multisafepay-debug.log file.
 
 ## [2.7.1] - 2021-04-19
 ### Changed
