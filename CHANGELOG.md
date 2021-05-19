@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [2.8.1] - 2021-05-19
 ### Fixed
 - Fixed a bug in payment validation transaction type constant scope, changed it from private to public.
+- Fixed a bug in Afterpay and in3 payment methods related to phone_number field name.
 
 ## [2.8.0] - 2021-05-12
 ### Added
