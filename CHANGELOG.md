@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.8.1] - 2021-05-19
+### Fixed
+- Fixed a bug in payment validation transaction type constant scope, changed it from private to public.
+
 ## [2.8.0] - 2021-05-12
 ### Added
 - Added separate phone number field for Afterpay & in3, which will already be filled in if the phone number is present in the billing address.
