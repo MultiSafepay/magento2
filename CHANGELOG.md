@@ -4,11 +4,11 @@ All notable changes to this project will be documented in this file.
 ## [2.8.1] - 2021-05-19
 ### Fixed
 - Fixed a bug in payment validation transaction type constant scope, changed it from private to public.
-- Fixed a bug in Afterpay and in3 payment methods related to phone_number field name.
+- Fixed a bug in AfterPay and in3 payment methods related to phone_number field name.
 
 ## [2.8.0] - 2021-05-12
 ### Added
-- Added separate phone number field for Afterpay & in3, which will already be filled in if the phone number is present in the billing address.
+- Added separate phone number field for AfterPay & in3, which will already be filled in if the phone number is present in the billing address.
 - Added notification about new versions of plugin in admin panel.
 - Added System report to downloadable log archive for improved debugging.
 - Added the possibility to change direct gateway methods to redirect.
@@ -41,7 +41,7 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - Fixed an error that happened when trying to open orders with an expired transaction.
 - Fixed issue related to a missed tax amount in Fooman Surcharge custom totals
-- Fixed error when choosing 'miss' gender with Afterpay
+- Fixed error when choosing 'miss' gender with AfterPay
 - Fixed an error that happened during checkout when there is a custom total in the cart with float as a string value ("0.000")
 - Fixed issue where default pending status would get used instead of the one from the MultiSafepay config
 
@@ -103,7 +103,7 @@ All notable changes to this project will be documented in this file.
 
 ### ConnectCore [2.2.1]
 #### Fixed
-- Fixed undefined index for Afterpay and in3
+- Fixed undefined index for AfterPay and in3
 - Fixed wrong api key being used for MultiSafepay requests with a multi store setup
 - Fixed wrong store locale being sent in orders that were created in the admin backend
 
@@ -143,7 +143,7 @@ All notable changes to this project will be documented in this file.
 
 #### Fixed
 - Fixed bug "Uncaught TypeError: Cannot read property 'observe' of undefined"
-- Fixed duplicate id's for birthday checkout field for in3 and Afterpay
+- Fixed duplicate id's for birthday checkout field for in3 and AfterPay
 
 #### Changed
 - Changed the way checkout fields are observed and default method is selected.
