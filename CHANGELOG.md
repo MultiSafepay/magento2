@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.10.1] - 2021-06-25
+### Fixed
+- Fixed a bug related to TypeError in ShipmentSaveAfterObserver. (Thanks to @Davie82)
+- Fixed a bug related to GET notifications where orders would stay in pending_payment status
+- Removed trailing comma for compatibility with IE11 in frontend plugin. (Thanks to @barryvdh)
+
 ## [2.10.0] - 2021-06-17
 ### Added
 - Added support MultiSafepay Credit Card component support for credit card payment methods.
