@@ -1,0 +1,93 @@
+name: Release Actions
+on:
+    pull_request:
+        branches:
+            - master
+        types: [ closed ]
+defaults:
+    run:
+        shell: bash
+jobs:
+    integration-tests:
+        name: Releases Actions
+        if: ${{ github.event.pull_request.merged == true && contains(github.head_ref, 'release/') && !contains(github.head_ref, 'revert')}}
+        runs-on: ubuntu-latest
+        services:
+            mysql:
+                image: mysql:5.7
+                env:
+                    MYSQL_ROOT_PASSWORD: root
+                    MYSQL_SQL_TO_RUN: 'GRANT ALL ON *.* TO "root"@"%";'
+                ports:
+                    - 3306:3306
+                options: --tmpfs /tmp:rw --tmpfs /var/lib/mysql:rw --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+            es:
+                image: docker.io/wardenenv/elasticsearch:7.8
+                ports:
+                    - 9200:9200
+                env:
+                    'discovery.type': single-node
+                    'xpack.security.enabled': false
+                    ES_JAVA_OPTS: "-Xms64m -Xmx512m"
+                options: --health-cmd="curl localhost:9200/_cluster/health?wait_for_status=yellow&timeout=60s" --health-interval=10s --health-timeout=5s --health-retries=3
+            redis:
+                image: redis
+                ports:
+                    - 6379:6379
+                options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
+        steps:
+            -   uses: actions/checkout@v2
+            -   uses: extdn/github-actions-m2/magento-mess-detector@master
+            -   name: Get Composer Cache Directory
+                id: composer-cache
+                run: |
+                    echo "::set-output name=dir::$(composer -g config cache-files-dir)"
+            -   uses: actions/cache@v2
+                with:
+                    path: ${{ steps.composer-cache.outputs.dir }}
+                    key: ${{ runner.os }}-composer
+            -   name: M2 Integration Tests on 2.3.6
+                uses: extdn/github-actions-m2/magento-integration-tests/7.3@master
+                env:
+                    MAGENTO_MARKETPLACE_USERNAME: ${{ secrets.MAGENTO_MARKETPLACE_USERNAME }}
+                    MAGENTO_MARKETPLACE_PASSWORD: ${{ secrets.MAGENTO_MARKETPLACE_PASSWORD }}
+                    GLOBAL_GITHUB_TOKEN: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
+                    COMPOSER_NAME: multisafepay/magento2
+                    CE_VERSION: 2.3.6
+                with:
+                    magento_pre_install_script: .github/workflows/magento-integration-tests-pre-phpunit.sh
+                    magento_post_install_script: .github/workflows/releases-integration-tests-post-install-additional.sh
+            -   name: M2 Integration Tests on 2.4.1
+                uses: extdn/github-actions-m2/magento-integration-tests/7.4@master
+                env:
+                    MAGENTO_MARKETPLACE_USERNAME: ${{ secrets.MAGENTO_MARKETPLACE_USERNAME }}
+                    MAGENTO_MARKETPLACE_PASSWORD: ${{ secrets.MAGENTO_MARKETPLACE_PASSWORD }}
+                    GLOBAL_GITHUB_TOKEN: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
+                    COMPOSER_NAME: multisafepay/magento2
+                    PHPUNIT_FILE: .github/workflows/phpunit.xml
+                    CE_VERSION: 2.4.1
+                with:
+                    magento_pre_install_script: .github/workflows/magento-integration-tests-pre-phpunit.sh
+                    magento_post_install_script: .github/workflows/releases-integration-tests-post-install-additional.sh
+                    phpunit_file: .github/workflows/phpunit.xml
+            -   name: Get Release Version
+                run: echo "::set-output name=version::$(echo ${{github.head_ref}} | cut -c 9-)"
+                id: version
+            -   name: Get Changelog Entry
+                id: changelog_reader
+                uses: mindsers/changelog-reader-action@v2
+                with:
+                    validation_depth: 10
+                    version: ${{steps.version.outputs.version}}
+                    path: ./CHANGELOG.md
+            -   name: Create Release
+                id: create_release
+                uses: actions/create-release@latest
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                with:
+                    tag_name: ${{steps.version.outputs.version}}
+                    release_name: ${{steps.version.outputs.version}}
+                    body: ${{steps.changelog_reader.outputs.changes}}
+                    draft: false
+                    prerelease: false
