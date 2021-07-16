@@ -9,7 +9,7 @@ defaults:
         shell: bash
 jobs:
     integration-tests:
-        name: Releases Actions
+        name: Release Actions
         if: ${{ github.event.pull_request.merged == true && contains(github.head_ref, 'release/') && !contains(github.head_ref, 'revert')}}
         runs-on: ubuntu-latest
         services:
