@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.10.2] - 2021-07-20
+### Fixed
+- Fixed a bug where the default store url was being used for payment links in backend orders.
+- Fixed a bug related to generating secure token in Magento Open Source 2.4.2
+- Fixed a bug where shopping cart refunds with 0 amounts would not throw an error. (Thanks to @reense)
+- Fixed a bug where if an FPT is used, it in some cases wouldn't get picked up
+
 ## [2.10.1] - 2021-06-25
 ### Fixed
 - Fixed a bug related to TypeError in ShipmentSaveAfterObserver. (Thanks to @Davie82)
