@@ -26,5 +26,5 @@ jobs:
             PHPUNIT_FILE: .github/workflows/phpunit.xml
             CE_VERSION: 2.3.5-p2
         with:
-            magento_pre_install_script: .github/workflows/magento-integration-tests-pre-phpunit.sh
+            magento_pre_install_script: .github/workflows/magento-integration-tests-pre-phpunit-for-old-versions.sh
             phpunit_file: .github/workflows/phpunit.xml
