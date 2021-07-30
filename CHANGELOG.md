@@ -6,7 +6,6 @@ All notable changes to this project will be documented in this file.
 - Added automatic cancellation of MultiSafepay pretransactions for non-paid canceled orders.
 - Added plugin version to the system report log
 - Added possibility to skip automatic invoice creation after MultiSafepay payment.
-- Added setting for possibility to skip automatic invoice creation after MultiSafepay payment.
 
 ### Fixed
 - Fixed a bug where manual invoices for backend created orders did not go to processing state.
