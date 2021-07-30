@@ -1,6 +1,27 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.11.0] - 2021-07-30
+### Added
+- Added automatic cancellation of MultiSafepay pretransactions for non-paid canceled orders.
+- Added plugin version to the system report log
+- Added possibility to skip automatic invoice creation after MultiSafepay payment.
+- Added setting for possibility to skip automatic invoice creation after MultiSafepay payment.
+
+### Fixed
+- Fixed a bug where manual invoices for backend created orders did not go to processing state.
+- Fixed a bug where filling in certain wrong values for the Date of birth field for AfterPay and in3 caused an error
+- Fixed a bug where "Unable to unserialize value" errors were logged for every product.
+- Fixed a bug where the shipping description in the transaction would cause an error if it was null (thanks to @florisschreuder)
+- Fixed a bug where some header elements were still visible inside the checkout (Thanks to @Davie82)
+- Fixed a bug where the MultiSafepay payment component external js file could not be loaded when using Magento javascript minification
+
+### Changed
+* Improved several UI and UX elements:
+  - Added a notice with a link to the MultiSafepay Merchant Control Panel under the API key field
+  - Added enabled/disabled indicators next to the gateways and giftcards
+  - Added a MultiSafepay mention to the Payment configuration page at *Stores > Configuration > Sales > Payment Methods* with a link to sign up. Clicking on configuration will redirect to the MultiSafepay General Settings page
+
 ## [2.10.2] - 2021-07-20
 ### Fixed
 - Fixed a bug where the default store url was being used for payment links in backend orders.
