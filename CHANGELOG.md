@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+### Changed
+- Dropped support for Magento 2.2.x versions.
+
 ## [2.11.0] - 2021-07-30
 ### Added
 - Added automatic cancellation of MultiSafepay pretransactions for non-paid canceled orders.
