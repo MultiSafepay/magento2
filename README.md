@@ -40,7 +40,7 @@ For GraphQL support there is a separate module:
 ## Module dependencies
 The meta-package has a dependency on MSI, which means that the MSI modules should be available (but not necessarily enabled) in your store. 
 
-However, if you have removed it with, for example, a composer-replace trick like [yireo/magento2-replace-inventory](https://github.com/yireo/magento2-replace-inventory) or if MSI is not available because you are still running Magento 2.2, you will not be able to install the meta-package.
+However, if you have removed it with, for example, a composer-replace trick like [yireo/magento2-replace-inventory](https://github.com/yireo/magento2-replace-inventory), you will not be able to install the meta-package.
 In this case it is still possible to integrate with MultiSafepay. 
 You can then install the magento2-frontend module and the magento2-catalog-inventory module, instead of the meta-package.
 
@@ -55,42 +55,37 @@ If you are a developer, we recommend installing the various composer packages se
 
 For merchants, we recommend installing the complete package via composer:
 
-```shell
-composer require multisafepay/magento2
-```
+    composer require multisafepay/magento2
 
 This will install all the different Magento 2 modules that support MultiSafepay.
 
 Next, to enable all MultiSafepay modules, run the following:
 
-    ./bin/magento module:enable `./bin/magento module:status | grep MultiSafepay_`
-    
-Next, run the following commands:
-```shell
-php bin/magento setup:upgrade
-php bin/magento setup:di:compile
-php bin/magento setup:static-content:deploy
-```
+    php bin/magento module:enable MultiSafepay_ConnectCore MultiSafepay_ConnectAdminhtml MultiSafepay_ConnectFrontend
 
 ### Stock handling
+For stock handling you can either enable the ConnectMSI module or the ConnectCatalogInventory module, depending on your environment.
 
-If you have disabled MSI inside Magento 2, then you can use the following command to disable the MultiSafepay MSI module:
-```shell
-php bin/magento module:disable MultiSafepay_ConnectMSI
-```
+If you have a Magento 2 environment with MSI enabled, then you can use the following command to enable the MultiSafepay MSI module:
 
-If you have a Magento 2 installation with MSI enabled, you can use the following command to disable the MultiSafepay CatalogInventory module instead:
-```shell
-php bin/magento module:disable MultiSafepay_ConnectCatalogInventory
-```
+    php bin/magento module:enable MultiSafepay_ConnectMSI
+
+If you have a Magento 2 environment with MSI disabled, you can use the following command to enable the MultiSafepay CatalogInventory module instead:
+
+    php bin/magento module:enable MultiSafepay_ConnectCatalogInventory
+
+Next, run the following commands:
+
+    php bin/magento setup:upgrade
+    php bin/magento setup:di:compile
+    php bin/magento setup:static-content:deploy
 
 ## Versioning
 This package installs multiple modules that are available in other repositories via composer. 
 Unlike the seperate modules it installs, it does not adhere to semantic versioning.
 To find out which version you are running for the seperate modules, the following command can be used:
-```shell
-composer show -v | grep multisafepay
-```
+
+    composer show -v | grep multisafepay
 
 ## Support
 You can create issues on our repository. If you need any additional help or support, please contact <a href="mailto:integration@multisafepay.com">integration@multisafepay.com</a>
