@@ -16,7 +16,7 @@ jobs:
         options: --tmpfs /tmp:rw --tmpfs /var/lib/mysql:rw --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v2
-      - name: M2 Integration Tests on 2.3.5-p1
+      - name: M2 Integration Tests on 2.3.6
         uses: docker://yireo/github-actions-magento-integration-tests:7.3
         env:
             MAGENTO_MARKETPLACE_USERNAME: ${{ secrets.MAGENTO_MARKETPLACE_USERNAME }}
@@ -24,7 +24,7 @@ jobs:
             GLOBAL_GITHUB_TOKEN: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
             COMPOSER_NAME: multisafepay/magento2
             PHPUNIT_FILE: .github/workflows/phpunit.xml
-            CE_VERSION: 2.3.5-p2
+            CE_VERSION: 2.3.6
         with:
             magento_pre_install_script: .github/workflows/magento-integration-tests-pre-phpunit-for-old-versions.sh
             phpunit_file: .github/workflows/phpunit.xml
