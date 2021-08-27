@@ -1,8 +1,26 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.12.0] - 2021-08-27
+### Added
+- Added compatibility with Adobe Commerce Gift Wrapping plugin.
+- Payment links can now be used for both order confirmation emails and order comment emails.
+
 ### Changed
+- Code refactored for order service methods.
+- We are now removing sensitive data from the payment after the customer has been redirected.
+- Changed the resolution of payment icons to be more in line with Magento core payment icons
+- Added date picker field for Date of Birth checkout fields to further increase the consistency of input
 - Dropped support for Magento 2.2.x versions.
+- Deleted unnecessary order savings for better performance
+- Changed event listeners from controller_action_predispatch to backend_auth_user_login_success for checking the new released plugin versions. (Thanks to @Tjitse-E)
+- Improved the UX/UI for General Information page
+
+### Fixed
+- Fixed a bug where some POST notification can be restricted because of CSRF validation.
+- Fixed PHP Mess detector issues.
+- Fixed a bug where Vault cards would not be stored because of a type error.
+- Fixed a bug where for some custom totals with a value of '0.0' an error would occur on transaction creation.
 
 ## [2.11.0] - 2021-07-30
 ### Added
