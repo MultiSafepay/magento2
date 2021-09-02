@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.12.1] - 2021-09-02
+### Fixed
+- Fixed a bug related to incorrect shipping tax calculation with a specific tax configuration.
+- Fixed a bug which causes an 'Integrity constraint violation: 1052 Column ‘increment_id’ in where clause is ambiguous' error if there is another increment_id.
+
 ## [2.12.0] - 2021-08-27
 ### Added
 - Added compatibility with Adobe Commerce Gift Wrapping plugin.
