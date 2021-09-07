@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.12.2] - 2021-09-07
+### Fixed
+- Fixed a bug where some specific orders with other than credit card payment methods couldn't be refunded.
+- Fixed an issue where invoice emails were being sent after some time for orders with Billing Suite payment methods from the legacy plugin.
+- Fixed an issue where there were duplicate controllers with the legacy plugin, causing an error on transaction placement.
+
 ## [2.12.1] - 2021-09-02
 ### Fixed
 - Fixed a bug related to incorrect shipping tax calculation with a specific tax configuration.
