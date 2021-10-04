@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.12.3] - 2021-10-04
+### Fixed
+- Fixed a bug where division by zero issue appeared for custom totals in getting tax rate method.
+- Fixed a bug where an error would be thrown if the locale was null.
+- Fixed a bug with the FPT/WeeeTax calculation when set excluding tax.
+
 ## [2.12.2] - 2021-09-07
 ### Fixed
 - Fixed a bug where some specific orders with other than credit card payment methods couldn't be refunded.
