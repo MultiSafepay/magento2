@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.12.4] - 2021-10-07
+### Fixed
+- Fixed a refund issue for manual captured payments
+
+### Changed
+- Updated the MultiSafepay credit card component javascript library from V1 to V2.
+
 ## [2.12.3] - 2021-10-04
 ### Fixed
 - Fixed a bug where division by zero issue appeared for custom totals in getting tax rate method.
