@@ -62,7 +62,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 * Improved several UI and UX elements:
-  - Added a notice with a link to the MultiSafepay Merchant Control Panel under the API key field
+  - Added a notice with a link to the MultiSafepay Account under the API key field
   - Added enabled/disabled indicators next to the gateways and giftcards
   - Added a MultiSafepay mention to the Payment configuration page at *Stores > Configuration > Sales > Payment Methods* with a link to sign up. Clicking on configuration will redirect to the MultiSafepay General Settings page
 
