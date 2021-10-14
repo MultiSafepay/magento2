@@ -4,6 +4,12 @@
 
 # MultiSafepay plugin for Magento 2
 
+![Build](https://img.shields.io/github/workflow/status/multisafepay/magento2/ExtDN%20Static%20Analysis?style=for-the-badge)
+![Codecov](https://img.shields.io/codecov/c/github/multisafepay/magento2-core?style=for-the-badge)
+![Latest Stable Version](https://img.shields.io/github/v/release/multisafepay/magento2?style=for-the-badge)
+![Total Downloads](https://img.shields.io/packagist/dt/multisafepay/magento2?style=for-the-badge)
+![License](https://img.shields.io/github/license/multisafepay/magento2?style=for-the-badge)
+
 Easily integrate MultiSafepay payment solutions into your Magento 2 webshop with the free and completely new MultiSafepay Magento 2 plugin.
 The new plugin brings code improvements, unit/integration testing, and it is build on top of the Magento payment provider gateway structure.
 
