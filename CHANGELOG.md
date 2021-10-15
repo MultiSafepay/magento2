@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.13.0] - 2021-10-15
+### Added
+- Added Apple Pay Direct
+- Added Google Pay Direct/Redirect
+- Added WeChat Pay Redirect
+
+### Fixed
+- Fixed an error notice when postal code was left empty (Thanks to @thlassche)
+- Fixed Credit Card Payment Component not showing on IE due to new JS syntax (thanks to @thlassche)
+- Fixed the utm_nooverride parameter not being picked up in Google Analytics because of a trailing slash (Thanks to @peterjaap)
+
+### Changed
+- Changed the placement of the iDEAL issuers dropdown to be on top of the billing address instead of below it.
+
 ## [2.12.4] - 2021-10-07
 ### Fixed
 - Fixed a refund issue for manual captured payments
