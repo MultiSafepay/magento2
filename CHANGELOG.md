@@ -4,8 +4,8 @@ All notable changes to this project will be documented in this file.
 ## [2.13.0] - 2021-10-15
 ### Added
 - Added Apple Pay Direct
-- Added Google Pay
-- Added WeChat Pay
+- Added Google Pay Direct/Redirect
+- Added WeChat Pay Redirect
 
 ### Fixed
 - Fixed an error notice when postal code was left empty (Thanks to @thlassche)
