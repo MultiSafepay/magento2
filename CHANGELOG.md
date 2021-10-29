@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.14.0] - 2021-10-29
+### Added
+- Added iDEAL and Direct Debit Vault
+- Added Edenred
+
+### Fixed
+- Fixed an issue with Vault and Manual capture
+- Fixed an issue where the transaction type for Direct Debit would not be saved
+
+### Changed
+- Changed the dependency on Guzzle6-adapter from '*' to '^2.0', because Guzzle6-adapter '^1.0' does not implement Psr-7
+- Changed composer type from 'library' to 'metapackage'
+- Changed the Vault 'Save for later use' checkbox to be default unchecked instead of checked for MultiSafepay payment methods
+- Changed the module to not only return an 'ng' on notification failure and show more information about why the notification process failed
+
 ## [2.13.0] - 2021-10-15
 ### Added
 - Added Apple Pay Direct
