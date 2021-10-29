@@ -9,7 +9,7 @@
         "multisafepay/magento2-catalog-inventory": "1.0.2",
         "multisafepay/magento2-msi": "1.0.1"
     },
-    "type": "library",
+    "type": "metapackage",
     "license": [
         "OSL-3.0"
     ]
