@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.14.1] - 2021-11-01
+### Fixed
+- Fixed an issue related to empty Edenred payment method config
+
+
 ## [2.14.0] - 2021-10-29
 ### Added
 - Added iDEAL and Direct Debit Vault
