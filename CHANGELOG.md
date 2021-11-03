@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.14.2] - 2021-11-03
+### Fixed
+- Fixed an issue with AfterPay Date of Birth date picker field
+
 ## [2.14.1] - 2021-11-01
 ### Fixed
 - Fixed an issue related to empty Edenred payment method config
