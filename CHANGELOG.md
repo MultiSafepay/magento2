@@ -1,6 +1,27 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.15.0] - 2021-11-30
+### Added
+- Added a separate option for when to send the order confirmation email for the Bank Transfer payment method
+- Added a button to verify the API Key before saving the config.
+- Added compatibility with [Adobe Commerce Gift Card Accounts](https://docs.magento.com/user-guide/catalog/product-gift-card-accounts.html)
+- Added back REST API compatibility, including an end point for retrieving the payment link after order creation.
+- Added the possibility to fetch transaction data in the transaction overview.
+
+### Fixed
+- Fixed an issue where the wrong shipping tax rate was being sent when using VAT ID validation
+- Fixed an issue where frontend fetches API tokens for CC component, while payment type is configured as redirect (Thanks to @thlassche)
+
+### Changed
+- Changed the API Key fields to be obscured for added security, they are now also stored with encryption provided by the Encryptor from the Magento Framework
+- Updated the credit card logo
+- MultiSafepay Account data is now dynamically retrieved via an API request for Google Pay Direct
+- Improved logging for Magento payment gateway, client and shipping requests.
+- Changed the Google Pay button background to be transparent instead of white.
+- Made changes in the way the payment link is retrieved from the order.
+- Extended direct ApplePay with requiredBillingContactFields
+
 ## [2.14.2] - 2021-11-03
 ### Fixed
 - Fixed an issue with AfterPay Date of Birth date picker field
@@ -8,7 +29,6 @@ All notable changes to this project will be documented in this file.
 ## [2.14.1] - 2021-11-01
 ### Fixed
 - Fixed an issue related to empty Edenred payment method config
-
 
 ## [2.14.0] - 2021-10-29
 ### Added
