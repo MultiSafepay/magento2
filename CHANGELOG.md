@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [2.16.0] - 2021-01-11
+## [2.16.0] - 2022-01-11
 ### Added
 - Added checker if order is actually processing before returning 'ok' for notification requests
 - Added options for selecting separate behaviours of cancelling MutliSafepay order payment link
