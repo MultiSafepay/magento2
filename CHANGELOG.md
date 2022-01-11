@@ -1,6 +1,25 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.16.0] - 2022-01-11
+### Added
+- Added checker if order is actually processing before returning 'ok' for notification requests
+- Added options for selecting separate behaviours of cancelling MutliSafepay order payment link
+- Added options for selecting separate order status for different MultiSafepay statuses
+- Added error when using adjustment for shopping cart refund
+
+### Changed
+- Shipping prices excluding tax are now re-calculated based on the shipping prices including tax
+
+### Fixed
+- Fixed an issue where sometimes no error message shown with declined AfterPay transaction
+- Fixed an issue where validate API key button uses default store view always (Thanks to @thlassche)
+- Fixed an issue where encrypted password doesn't get correct
+- Fixed an issue where failed shopping cart refunds in rare cases wouldn't be able to log ApiException and ClientExceptionInterface errors.
+- Fixed an issue where the setting order comments fails on Magento 2.4.3 (Thanks to @Tjitse-E)
+- Fixed an issue where the wrong Api key is used to generate SecureToken (Thanks to @Hexmage)
+- Fixed an issue related to Swagger error
+
 ## [2.15.0] - 2021-11-30
 ### Added
 - Added a separate option for when to send the order confirmation email for the Bank Transfer payment method
