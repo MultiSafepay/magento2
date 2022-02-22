@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.16.1] - 2022-02-22
+### Fixed
+- Fix notification process for sequential offline actions
+
 ## [2.16.0] - 2022-01-11
 ### Added
 - Added checker if order is actually processing before returning 'ok' for notification requests
