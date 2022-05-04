@@ -1,6 +1,26 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.17.0] - 2022-04-28
+### Added
+- Added an option to skip the bank details page after placing an order for the Bank Transfer payment method
+
+### Fixed
+- Fixed an issue where MultiSafepay orders in state pending_payment could not go to processing if the order was paid through another way.
+- Fixed an issue with a circular dependency in the Config, which shows up during a setup:upgrade command.
+- Fixed an issue with the custom REST API endpoint for retrieving the payment URL for a specific logged in customer, where it returned an incorrect type use error.
+- Fixed an issue with the Amasty_OrderStatus module where it wasn't able to correctly save an order comment after placing it.
+- Fixed the alignment of the CCV field inside the Credit Card Payment Component
+
+### Changed
+- Deprecated ING Home'Pay
+- Added changes that are required for PHP 8.1:
+  - Added function type declarations
+  - Changed namespaces to be declared on a single line
+  - Added null coalescing operator for when haystack parameter for the strpos() function is null
+- Removed the dependency for Guzzle 6 and replaced it with a custom client implementation based on the Magento Curl Adapter
+- Removed the dependency for php-http/guzzle6-adapter and replaced it with nyholm/psr7
+
 ## [2.16.1] - 2022-02-22
 ### Fixed
 - Fix notification process for sequential offline actions
