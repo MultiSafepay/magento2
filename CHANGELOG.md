@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.17.1] - 2022-05-10
+### Fixed
+- Fixed an issue where in rare cases the salable quantity would be incremented twice when a transaction is canceled or declined
+
 ## [2.17.0] - 2022-04-28
 ### Added
 - Added an option to skip the bank details page after placing an order for the Bank Transfer payment method
