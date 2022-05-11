@@ -46,14 +46,14 @@ jobs:
                 with:
                     path: ${{ steps.composer-cache.outputs.dir }}
                     key: ${{ runner.os }}-composer
-            -   name: M2 Integration Tests on 2.3.6
+            -   name: M2 Integration Tests on 2.3.7
                 uses: extdn/github-actions-m2/magento-integration-tests/7.3@master
                 env:
                     MAGENTO_MARKETPLACE_USERNAME: ${{ secrets.MAGENTO_MARKETPLACE_USERNAME }}
                     MAGENTO_MARKETPLACE_PASSWORD: ${{ secrets.MAGENTO_MARKETPLACE_PASSWORD }}
                     GLOBAL_GITHUB_TOKEN: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
                     COMPOSER_NAME: multisafepay/magento2
-                    CE_VERSION: 2.3.6
+                    CE_VERSION: 2.3.7-p3
                 with:
                     magento_pre_install_script: .github/workflows/magento-integration-tests-pre-phpunit-for-old-versions.sh
                     magento_post_install_script: .github/workflows/releases-integration-tests-post-install-additional.sh
