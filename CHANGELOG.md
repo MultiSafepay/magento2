@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.17.2] - 2022-05-13
+### Fixed
+- Fixed an issue with the timing of request timeouts for incoming notifications
+
 ## [2.17.1] - 2022-05-10
 ### Fixed
 - Fixed an issue where in rare cases the salable quantity would be incremented twice when a transaction is canceled or declined
