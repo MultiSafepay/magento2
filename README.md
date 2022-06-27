@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://www.multisafepay.com/img/multisafepaylogo.svg" width="400px" position="center">
+    <img src="https://camo.githubusercontent.com/517483ae0eaba9884f397e9af1c4adc7bbc231575ac66cc54292e00400edcd10/68747470733a2f2f7777772e6d756c7469736166657061792e636f6d2f66696c6561646d696e2f74656d706c6174652f696d672f6d756c7469736166657061792d6c6f676f2d69636f6e2e737667" width="400px" position="center">
 </p>
 
 # MultiSafepay plugin for Magento 2
@@ -24,10 +24,10 @@ The supported Payment Methods & Giftcards for this plugin can be found over here
 ## Requirements
 - To use the plugin you need a MultiSafepay account. You can create a test account on https://testmerchant.multisafepay.com/signup
 - Magento Open Source version 2.3.x & 2.4.x
-- PHP 7.1+
+- PHP 7.2+
 
 ## Upgrading from plugin version v1.14 and below
-Please read our [dedicated documentation page](https://docs.multisafepay.com/integrations/ecommerce-integrations/magento2/faq/migrating-to-new-plugin/) about all the changes to look out for when switching to our new plugin.
+Please read our [dedicated documentation page](https://docs.multisafepay.com/magento-2/#upgrading) about all the changes to look out for when switching to our new plugin.
 
 ## Module suite
 
