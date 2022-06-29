@@ -1,6 +1,26 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.18.0] - 2022-06-29
+### Added
+- Added Vault for Maestro
+- Added the Alipay+ payment method
+- Added Tokenization (embedded) for the following gateways:
+  - American Express
+  - Credit Card
+  - Maestro
+  - Mastercard
+  - Visa
+
+### Fixed
+- Fixed an issue where placing orders through some gateways with GraphQL returns an error
+- Fixed an issue where there would be duplicated tokens stored in Vault in some rare cases
+- Fixed the sorting of the generic gateways to be always at the bottom
+- Fixed field dependencies of all the gateways to always depend on the 'active' field
+
+### Changed
+- Changed the styles and images according to the new rebranding guidelines
+
 ## [2.17.2] - 2022-05-13
 ### Fixed
 - Fixed an issue with the timing of request timeouts for incoming notifications
