@@ -1,6 +1,19 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.19.0] - 2022-07-11
+### Added
+- Added a configuration option for overriding when to send the order confirmation e-mail for pay later methods
+
+### Fixed
+- Fixed an issue where the order state switches to 'Pending payment' after 'Completed' in rare cases
+
+### Changed
+- Added logging for the notification webhook response
+
+### Removed
+- Removed the payment link order comment for frontend orders, because of multiple processes trying to save the order, which causes an issue in some instances
+
 ## [2.18.0] - 2022-06-29
 ### Added
 - Added Vault for Maestro

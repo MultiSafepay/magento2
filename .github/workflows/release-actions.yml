@@ -58,15 +58,15 @@ jobs:
                     magento_pre_install_script: .github/workflows/magento-integration-tests-pre-phpunit-for-old-versions.sh
                     magento_post_install_script: .github/workflows/releases-integration-tests-post-install-additional.sh
                     phpunit_file: .github/workflows/phpunit.xml
-            -   name: M2 Integration Tests on 2.4.2
-                uses: extdn/github-actions-m2/magento-integration-tests/7.4@master
+            -   name: M2 Integration Tests on 2.4.3-p1
+                uses: MultiSafepay/github-actions-m2/magento-integration-tests/7.4@master
                 env:
                     MAGENTO_MARKETPLACE_USERNAME: ${{ secrets.MAGENTO_MARKETPLACE_USERNAME }}
                     MAGENTO_MARKETPLACE_PASSWORD: ${{ secrets.MAGENTO_MARKETPLACE_PASSWORD }}
                     GLOBAL_GITHUB_TOKEN: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
                     COMPOSER_NAME: multisafepay/magento2
                     PHPUNIT_FILE: .github/workflows/phpunit.xml
-                    CE_VERSION: 2.4.2
+                    CE_VERSION: 2.4.3-p1
                 with:
                     magento_pre_install_script: .github/workflows/magento-integration-tests-pre-phpunit.sh
                     magento_post_install_script: .github/workflows/releases-integration-tests-post-install-additional.sh
