@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.20.0] - 2022-08-23
+### Added
+- Added the MyBank payment method
+- Improved logging for failed POST notifications
+- Added support for keeping the cart alive when using FireCheckout (Thanks to @mlaurense)
+
+### Fixed
+- Fixed an issue where in some cases VISA transactions could not be refunded through the backend
+- Fixed dead docs links in the configuration and support page for specific articles like tokenization and vault.
+- Prevented double execution of order transaction processing when the POST notification fails
+
+### Removed
+- Removed payment method docs links in the configuration page
+
 ## [2.19.0] - 2022-07-11
 ### Added
 - Added a configuration option for overriding when to send the order confirmation e-mail for pay later methods
