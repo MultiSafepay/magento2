@@ -6,107 +6,96 @@
 
 [![Build](https://img.shields.io/github/workflow/status/multisafepay/magento2/ExtDN%20Static%20Analysis?style=for-the-badge)](https://github.com/MultiSafepay/magento2/actions)
 [![Codecov](https://img.shields.io/codecov/c/github/multisafepay/magento2-core?style=for-the-badge)](https://app.codecov.io/gh/MultiSafepay/magento2-core)
-[![Latest Stable Version](https://img.shields.io/github/v/release/multisafepay/magento2?style=for-the-badge)](https://packagist.org/packages/multisafepay/magento2)
-[![Total Downloads](https://img.shields.io/packagist/dt/multisafepay/magento2?style=for-the-badge)](https://packagist.org/packages/multisafepay/magento2/stats)
+[![Latest stable version](https://img.shields.io/github/v/release/multisafepay/magento2?style=for-the-badge)](https://packagist.org/packages/multisafepay/magento2)
+[![Total downloads](https://img.shields.io/packagist/dt/multisafepay/magento2?style=for-the-badge)](https://packagist.org/packages/multisafepay/magento2/stats)
 [![License](https://img.shields.io/github/license/multisafepay/magento2?style=for-the-badge)](https://github.com/MultiSafepay/magento2/blob/master/LICENSE.md)
 
-Easily integrate MultiSafepay payment solutions into your Magento 2 webshop with the free and completely new MultiSafepay Magento 2 plugin.
-The new plugin brings code improvements, unit/integration testing, and it is build on top of the Magento payment provider gateway structure.
+Easily integrate MultiSafepay payment solutions into your Magento 2 webshop with our free plugin.
+The latest release includes unit/integration testing and it is built on the Magento payment provider gateway structure.
 
-Before you get started, please read our [installation & configuration manual](https://docs.multisafepay.com/integrations/plugins/magento2/) first.
+Before you get started, read MultiSafepay Docs - [Magento 2](https://docs.multisafepay.com/docs/magento-2) for:
 
-## About MultiSafepay ##
-MultiSafepay is a collecting payment service provider which means we take care of the agreements, technical details and payment collection required for each payment method. You can start selling online today and manage all your transactions from one place.
+- Supported payment methods
+- Upgrades from version v1.14 and below
 
-## Supported Payment Methods ##
-The supported Payment Methods & Giftcards for this plugin can be found over here: [Payment Methods & Giftcards](https://docs.multisafepay.com/magento-2/#details-supported-payment-methods)
+## About MultiSafepay
 
-## Requirements
-- To use the plugin you need a MultiSafepay account. You can create a test account on https://testmerchant.multisafepay.com/signup
+MultiSafepay is a collecting payment service provider, which means we take care of electronic contracts, technical details, and payment collection for each payment method. You can start selling online today and manage all your transactions in one place.
+
+## Prerequisites
+
+- You will need a [MultiSafepay account](https://testmerchant.multisafepay.com/signup). Consider a test account first.
 - Magento Open Source version 2.3.x & 2.4.x
 - PHP 7.2+
+- [Open software license (OSL 3.0)](https://github.com/MultiSafepay/Magento2Msp/blob/master/LICENSE.md)
 
-## Upgrading from plugin version v1.14 and below
-Please read our [dedicated documentation page](https://docs.multisafepay.com/magento-2/#upgrading) about all the changes to look out for when switching to our new plugin.
+## Modules
 
-## Module suite
+The plugin consists of several modules:
 
-The new MultiSafepay Magento 2 plugin consists of several modules:
+- [multisafepay-magento2-core](https://github.com/MultiSafepay/magento2-core): Provides core functionalities
+- [multisafepay-magento2-frontend](https://github.com/MultiSafepay/magento2-frontend): Enables payment gateways in the Magento checkout
+- [multisafepay-magento2-adminhtml](https://github.com/MultiSafepay/magento2-adminhtml): Enables/disables payment gateways and edits settings in the Magento backend
+- [multisafepay-magento2-msi](https://github.com/MultiSafepay/magento2-msi): Handles stock when MSI is enabled
+- [multisafepay-magento2-catalog-inventory](https://github.com/MultiSafepay/magento2-catalog-inventory): Handles stock when MSI is disabled
+- [multisafepay-magento2-graphql](https://github.com/MultiSafepay/magento2-graphql): Extends and adds GraphQL queries and mutations
+- [multisafepay-magento2](https://github.com/MultiSafepay/magento2): Meta package that installs all above modules
 
-* [multisafepay-magento2-core](https://github.com/MultiSafepay/magento2-core) (Provides core functionalities)
-* [multisafepay-magento2-frontend](https://github.com/MultiSafepay/magento2-frontend) (Enables use of the payment gateways in the Magento checkout)
-* [multisafepay-magento2-adminhtml](https://github.com/MultiSafepay/magento2-adminhtml) (Makes it possible to enable/disable payment gateways and change the settings in the Magento backend)
-* [multisafepay-magento2-msi](https://github.com/MultiSafepay/magento2-msi) (Handles stock when MSI is enabled)
-* [multisafepay-magento2-catalog-inventory](https://github.com/MultiSafepay/magento2-catalog-inventory) (Handles stock when MSI is disabled)
-* [multisafepay-magento2](https://github.com/MultiSafepay/magento2) (Meta package which installs all the above)
+### Module dependencies
+The meta-package has a dependency on MSI. This means the MSI modules must be available (but not necessarily enabled) in your store.
 
-For GraphQL support there is a separate module:
-* [multisafepay-magento2-graphql](https://github.com/MultiSafepay/magento2-graphql) (Extends and adds GraphQL queries and mutations)
+If you have removed MSI (e.g. with a composer-replace trick like [yireo/magento2-replace-inventory](https://github.com/yireo/magento2-replace-inventory)), you can't install the meta-package. To integrate with MultiSafepay, instead of installing the meta-package, install the magento2-frontend module and the magento2-catalog-inventory module.
 
-## Module dependencies
-The meta-package has a dependency on MSI, which means that the MSI modules should be available (but not necessarily enabled) in your store. 
+The magento2-frontend module has a dependency on the magento2-core and magento2-adminhtml modules, so they are all installed together. In some cases, you also then need a stock-handling module. Since MSI is not available, you can install the magento2-catalog-inventory module instead.
 
-However, if you have removed it with, for example, a composer-replace trick like [yireo/magento2-replace-inventory](https://github.com/yireo/magento2-replace-inventory), you will not be able to install the meta-package.
-In this case it is still possible to integrate with MultiSafepay. 
-You can then install the magento2-frontend module and the magento2-catalog-inventory module, instead of the meta-package.
+The installation process is the same for the Adobe Commerce version.
 
-The magento2-frontend module has a dependency on the magento2-core and magento2-adminhtml module, so they all will be installed.
-And then you need to have a module which handles the stock in some specific cases. 
-Since MSI is not available, you can install the magento2-catalog-inventory module instead.
+## How to install
 
-The installation process is the same for the Magento Commerce version.
+1. For developers, we recommend installing the composer packages separately so you can finetune which modules you need.
 
-## Installation
-If you are a developer, we recommend installing the various composer packages separately so that you can finetune which modules are needed and which are not.
+For merchants, we recommend installing the whole package via composer:
 
-For merchants, we recommend installing the complete package via composer:
+    ```composer require multisafepay/magento2```
 
-    composer require multisafepay/magento2
+2. To enable all MultiSafepay modules, run the following:
 
-This will install all the different Magento 2 modules that support MultiSafepay.
+    ``php bin/magento module:enable MultiSafepay_ConnectCore MultiSafepay_ConnectAdminhtml MultiSafepay_ConnectFrontend```
 
-Next, to enable all MultiSafepay modules, run the following:
+3. When you disable MSI in Magento 2, you must also disable the MultiSafepay MSI module by running:
 
-    php bin/magento module:enable MultiSafepay_ConnectCore MultiSafepay_ConnectAdminhtml MultiSafepay_ConnectFrontend
+    ```php bin/magento module:enable MultiSafepay_ConnectMSI```
 
-### Stock handling
-For stock handling you can either enable the ConnectMSI module or the ConnectCatalogInventory module, depending on your environment.
+4. If you have enabled MSI in Magento 2, to disable the MultiSafepay CatalogInventory module, run:
 
-If you have a Magento 2 environment with MSI enabled, then you can use the following command to enable the MultiSafepay MSI module:
+    ```php bin/magento module:enable MultiSafepay_ConnectCatalogInventory```
 
-    php bin/magento module:enable MultiSafepay_ConnectMSI
+5. Run the following commands:
 
-If you have a Magento 2 environment with MSI disabled, you can use the following command to enable the MultiSafepay CatalogInventory module instead:
-
-    php bin/magento module:enable MultiSafepay_ConnectCatalogInventory
-
-Next, run the following commands:
-
-    php bin/magento setup:upgrade
+   ```php bin/magento setup:upgrade
     php bin/magento setup:di:compile
-    php bin/magento setup:static-content:deploy
+    php bin/magento setup:static-content:deploy```
 
-## Versioning
+### Versioning
+
 This package installs multiple modules that are available in other repositories via composer. 
 Unlike the seperate modules it installs, it does not adhere to semantic versioning.
-To find out which version you are running for the seperate modules, the following command can be used:
+To find out which version you are running for the seperate modules, run the following:
 
-    composer show -v | grep multisafepay
+    ```composer show -v | grep multisafepay```
 
 ## Support
-You can create issues on our repository. If you need any additional help or support, please contact <a href="mailto:integration@multisafepay.com">integration@multisafepay.com</a>
 
-We are also available on our Magento Slack channel [#multisafepay-payments](https://magentocommeng.slack.com/messages/multisafepay-payments/). 
-Feel free to start a conversation or provide suggestions as to how we can refine our Magento 2 plugin.
+- Create an issue on this repository. 
+- Email <a href="mailto:integration@multisafepay.com">integration@multisafepay.com</a>
+- Start a conversation on our Magento Slack channel [#multisafepay-payments](https://magentocommeng.slack.com/messages/multisafepay-payments/). 
 
-## A gift for your contribution
-We look forward to receiving your input. Have you seen an opportunity to change things for better? We would like to invite you to create a pull request on GitHub.
-Are you missing something and would like us to fix it? Suggest an improvement by sending us an [email](mailto:integration@multisafepay.com) or by creating an issue.
+## Contributors
 
-What will you get in return? A brand new designed MultiSafepay t-shirt which will make you part of the team!
+If you see an opportunity to make an improvement, we invite you to create a pull request, create an issue, or email <integration@multisafepay.com> 
 
-## License
-[Open Software License (OSL 3.0)](https://github.com/MultiSafepay/Magento2Msp/blob/master/LICENSE.md)
+As a thank you for your contribution, we'll send you a MultiSafepay t-shirt, making you part of the team!
 
 ## Want to be part of the team?
-Are you a developer interested in working at MultiSafepay? [View](https://www.multisafepay.com/careers/#jobopenings) our job openings and feel free to get in touch with us.
+
+Are you a developer interested in working at MultiSafepay? Check out our [job openings](https://www.multisafepay.com/careers/#jobopenings) and feel free to get in touch!
