@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.20.1] - 2022-09-12
+### Fixed
+- Fixed a bug where in rare instances Magento Vault would cause a 'unique constraint violation' when trying to save a payment token.
+- Fixed an Uncaught TypeError when trying to log the order if the order ID can't be found.
+
 ## [2.20.0] - 2022-08-23
 ### Added
 - Added the MyBank payment method
