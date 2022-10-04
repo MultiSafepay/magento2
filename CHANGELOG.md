@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.21.0] - 2022-10-04
+### Added
+- Payment links will now always be added to the order comment history again. For backend orders it happens immediately, for frontend orders it now happens when the first MultiSafepay notification arrives.
+- Added Amazon Pay.
+- Added an option for E-invoicing to assign collecting flow ids to specific customer groups.
+- Added an option for E-invoicing to turn on and off certain checkout fields.
+
+### Changed
+- Magento Vault stored payment methods now change to the gateway where the card was last used.
+
 ## [2.20.1] - 2022-09-12
 ### Fixed
 - Fixed a bug where in rare instances Magento Vault would cause a 'unique constraint violation' when trying to save a payment token.
