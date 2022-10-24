@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.21.1] - 2022-10-24
+### Fixed
+- Fixed a TypeError which happened in some instances when trying to retrieve E-invoicing dynamic checkout fields.
+- Fixed an issue where overriding when to send the order confirmation e-mail on gateway level sometimes did not work.
+- Fixed an issue where it was not possible to refund orders created with a generic gateway
+- Fixed references related to the E-Invoicing configurable 'account_number' field
+
+### Changed
+- Skipped E-invoicing validation if payment method is set up as redirect
+
 ## [2.21.0] - 2022-10-04
 ### Added
 - Payment links will now always be added to the order comment history again. For backend orders it happens immediately, for frontend orders it now happens when the first MultiSafepay notification arrives.
