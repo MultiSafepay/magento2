@@ -1,6 +1,26 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.22.0] - 2022-12-07
+### Added
+- Added support for optional customer city argument
+- Added raw response data to Apple Pay Merchant Session request logs for better debugging possibilities
+- Added improved response handling for Pay After Delivery and Klarna refunds
+
+### Fixed
+- Made all the config field labels translatable
+- Fixed '1000 Required Fields error' in rare cases when creating a shipping update request
+- Made sure checkout loads correctly if API is unreachable
+
+### Changed
+- Rebranded AfterPay to Riverty
+- Changed labels of when to send the order confirmation email
+- Retrieving issuers for a gateway will only be done when the gateway has been activated
+- The payment will now only be saved after redirect whenever sensitive information has been detected and removed from the payment additional information
+- Changed the POST notification process to only retrieve the order after POST validation has passed
+- Improved the error message that is shown to the customer whenever the payment fails.
+- Checking for recurring tokens will only occur now when Magento Vault is enabled.
+
 ## [2.21.1] - 2022-10-24
 ### Fixed
 - Fixed a TypeError which happened in some instances when trying to retrieve E-invoicing dynamic checkout fields.
