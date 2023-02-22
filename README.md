@@ -70,7 +70,7 @@ php bin/magento module:enable MultiSafepay_ConnectCore MultiSafepay_ConnectAdmin
 
 3. When you disable MSI in Magento 2, you must also disable the MultiSafepay MSI module by running:
 ```
-php bin/magento module:enable MultiSafepay_ConnectMSI
+php bin/magento module:disable MultiSafepay_ConnectMSI
 ```
 
 4. If you have a Magento 2 environment with MSI disabled, to enable the MultiSafepay CatalogInventory module instead, run:
