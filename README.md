@@ -4,7 +4,7 @@
 
 # MultiSafepay plugin for Magento 2
 
-[![Build](https://img.shields.io/github/workflow/status/multisafepay/magento2/ExtDN%20Static%20Analysis?style=for-the-badge)](https://github.com/MultiSafepay/magento2/actions)
+[![Build](https://img.shields.io/github/actions/workflow/status/multisafepay/magento2/phpcs.yml?style=for-the-badge)](https://github.com/MultiSafepay/magento2/actions)
 [![Codecov](https://img.shields.io/codecov/c/github/multisafepay/magento2-core?style=for-the-badge)](https://app.codecov.io/gh/MultiSafepay/magento2-core)
 [![Latest stable version](https://img.shields.io/github/v/release/multisafepay/magento2?style=for-the-badge)](https://packagist.org/packages/multisafepay/magento2)
 [![Total downloads](https://img.shields.io/packagist/dt/multisafepay/magento2?style=for-the-badge)](https://packagist.org/packages/multisafepay/magento2/stats)
