@@ -1,6 +1,27 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.23.0] - 2023-03-07
+### Added
+- Added configuration for the Pay After Delivery installments payment method
+- Added missing class variables for deprecation support with PHP 8.2
+- Added Pay After Delivery installments payment method
+
+### Fixed
+- Fixed missing checkbox in rare cases for placing a transaction with iDEAL and Direct Debit Vault
+- Fixed broken docs links for Apple Pay Direct
+- Fixed the customer ID not being able to be null, thanks to @Jade-GG
+- Fixed a bug where payment methods were missing after a cancelled order
+- Fixed translations for OrderPlaceAfterObserver error messages, thanks to @mlaurense
+
+### Changed
+- Gateway info objects are now passed as a string instead of an object
+- Rebrand Pay After Delivery
+- Removed the PWA mention from the custom url labels, since that functionality is not only available when using a PWA
+
+### Removed
+- Copyright mention has been removed from the files and is only mentioned from now on in the disclaimer. Please read it if you haven't already
+
 ## [2.22.0] - 2022-12-07
 ### Added
 - Added support for optional customer city argument
