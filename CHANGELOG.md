@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.0] - 2023-04-03
+### Added
+- Added new service interfaces, processes and a controller for processing notification webhooks
+
+### Changed
+- Changed to use asString methods in Customer and Delivery Builders
+- Refactored notification webhook process. Notification webhooks are now processed in the core module and not in the frontend module
+
+### Removed
+- Removed the dependency for zendframework/zend-http and laminas/laminas-http, to be compatible with Magento ^2.3.0 and ^2.4.0
+- Removed capture options from manual invoice in credit card methods to make that process have one manual action less
+
 ## [2.23.0] - 2023-03-07
 ### Added
 - Added configuration for the Pay After Delivery installments payment method
