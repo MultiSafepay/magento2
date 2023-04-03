@@ -74,7 +74,7 @@ jobs:
                     magento_post_install_script: .github/workflows/releases-integration-tests-post-install-additional.sh
                     phpunit_file: .github/workflows/phpunit.xml
             -   name: Get Release Version
-                run: echo "::set-output name=version::$(echo ${{github.head_ref}} | cut -c 9-)"
+                run: echo "::set-output name=version::$(cat composer.json | grep version | awk -F'\"' '{print $4}')"
                 id: version
             -   name: Get Changelog Entry
                 id: changelog_reader
