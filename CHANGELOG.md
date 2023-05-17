@@ -1,6 +1,19 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.1.0] - 2023-05-17
+### Added
+- Add payment component for Pay After Delivery installments
+- Give the option to set 3 different icons for payment method Credit Card
+- Add a setting field to exclude utm_nooverride from the redirect_url
+
+### Changed
+- Refactor Credit Card Payment Components
+- Rebrand Sofort
+
+### Fixed
+- Fix Riverty and in3 component rendering, failing in some third party checkouts
+
 ## [3.0.0] - 2023-04-03
 ### Added
 - Added new service interfaces, processes and a controller for processing notification webhooks
