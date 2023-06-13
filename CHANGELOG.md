@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.1.1] - 2023-06-13
+### Added
+- Added the functionality to add plugin data information for other enabled third party plugins, starting with Hyva React Checkout
+
+### Fixed
+- Fixed an issue where incorrect item prices would show in combination with the Meetanshi Vat Excemption module
+
+### Changed
+- Changed the OrderItemBuilder to make the procedure of modifying the merchant item id using a plugin interceptor class easier
+- Changed the 'Credit Card' method default title to 'Card Payment' according to the latest standards
+- Changed the scope of some variables in Config and SdkFactory
+
+### Removed
+- Removed the setup_version from the module.xml
+
 ## [3.1.0] - 2023-05-17
 ### Added
 - Add payment component for Pay After Delivery installments
