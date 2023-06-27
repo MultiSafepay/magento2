@@ -3,43 +3,43 @@ All notable changes to this project will be documented in this file.
 
 ## [3.1.1] - 2023-06-13
 ### Added
-- Added the functionality to add plugin data information for other enabled third party plugins, starting with Hyva React Checkout
+- PLGMAG2V2-671: Added the functionality to add plugin data information for other enabled third party plugins, starting with Hyva React Checkout
 
 ### Fixed
-- Fixed an issue where incorrect item prices would show in combination with the Meetanshi Vat Excemption module
+- PLGMAG2V2-670: Fixed an issue where incorrect item prices would show in combination with the Meetanshi Vat Excemption module
 
 ### Changed
-- Changed the OrderItemBuilder to make the procedure of modifying the merchant item id using a plugin interceptor class easier
-- Changed the 'Credit Card' method default title to 'Card Payment' according to the latest standards
-- Changed the scope of some variables in Config and SdkFactory
+- PLGMIRAKL-26: Changed the OrderItemBuilder to make the procedure of modifying the merchant item id using a plugin interceptor class easier
+- DAVAMS-607: Changed the 'Credit Card' method default title to 'Card Payment' according to the latest standards
+- PLGMIRAKL-2: Changed the scope of some variables in Config and SdkFactory
 
 ### Removed
-- Removed the setup_version from the module.xml
+- PLGMAG2V2-669: Removed the setup_version from the module.xml
 
 ## [3.1.0] - 2023-05-17
 ### Added
-- Add payment component for Pay After Delivery installments
-- Give the option to set 3 different icons for payment method Credit Card
-- Add a setting field to exclude utm_nooverride from the redirect_url
+- PLGMAG2V2-661: Add payment component for Pay After Delivery installments
+- PLGMAG2V2-657: Give the option to set 3 different icons for payment method Credit Card
+- PLGMAG2V2-667: Add a setting field to exclude utm_nooverride from the redirect_url
 
 ### Changed
-- Refactor Credit Card Payment Components
-- Rebrand Sofort
+- PLGMAG2V2-632: Refactor Credit Card Payment Components
+- PLGMAG2V2-653: Rebranded Sofort
 
 ### Fixed
-- Fix Riverty and in3 component rendering, failing in some third party checkouts
+- PLGMAG2V2-665: Fixed Riverty and in3 component rendering, failing in some third party checkouts
 
 ## [3.0.0] - 2023-04-03
 ### Added
-- Added new service interfaces, processes and a controller for processing notification webhooks
+- PLGMAG2V2-573: Added new service interfaces, processes and a controller for processing notification webhooks
 
 ### Changed
-- Changed to use asString methods in Customer and Delivery Builders
-- Refactored notification webhook process. Notification webhooks are now processed in the core module and not in the frontend module
+- PLGMAG2V2-642: Changed to use asString methods in Customer and Delivery Builders
+- PLGMAG2V2-617: Refactored notification webhook process. Notification webhooks are now processed in the core module and not in the frontend module
 
 ### Removed
-- Removed the dependency for zendframework/zend-http and laminas/laminas-http, to be compatible with Magento ^2.3.0 and ^2.4.0
-- Removed capture options from manual invoice in credit card methods to make that process have one manual action less
+- PLGMAG2V2-648: Removed the dependency for zendframework/zend-http and laminas/laminas-http, to be compatible with Magento ^2.3.0 and ^2.4.0
+- PLGMAG2V2-649: Removed capture options from manual invoice in credit card methods to make that process have one manual action less
 
 ## [2.23.0] - 2023-03-07
 ### Added
