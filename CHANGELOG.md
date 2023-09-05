@@ -1,6 +1,22 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.1.3] - 2023-09-04
+### Added
+- PLGMAG2V2-681: Added translations for title and placeholder HTML attributes
+
+### Fixed
+- PLGMAG2V2-691: Fixed an issue with Pay After Delivery Installments refunds
+- PLGMAG2V2-696: Fixed an issue where notification requests would require a lot of time to process, in some cases causing a timeout
+
+### Changed
+- PLGMAG2V2-683: API tokens are now stored and retrieved through the cache
+- PLGMAG2V2-680: Replaced var with let in validate API key button function
+
+### Removed
+- PLGMAG2V2-694: Removed class import dependency on Magento_Giftcardaccount for CustomTotalBuilder
+- PLGMAG2V2-676: Removed unused getCheckButtonId() function
+
 ## [3.1.2] - 2023-07-17
 ### Fixed
 - PLGMAG2V2-682: Fixed an issue where Google Pay and Apple Pay were not redirecting to the payment page
