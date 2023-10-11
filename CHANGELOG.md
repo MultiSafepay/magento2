@@ -1,6 +1,22 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.2.0] - 2023-10-11
+### Added
+- PLGMAG2V2-700: Added Edenred Consumption Voucher (EDENCONSUM)
+- PLGMAG2V2-699: Added support for simple products that have custom options configured with no custom SKU
+- DAVAMS-661: Added the Zinia payment method
+- PLGMAG2V2-687: Added support for adjustment refunds
+
+### Fixed
+- PLGMAG2V2-690: Fixed direct payment methods doing redirect when direct is configured
+- PLGMAG2V2-692: Fixed bundle product shopping cart refund
+
+### Changed
+- PLGMAG2V2-688: Changed notification delay to add Canceled, Void, Expired and Declined statuses
+- PLGMIRAKL-58: Excluded custom total 'marketplace_shipping' from Mirakl since it will be added by the MultiSafepay Mirakl module instead
+- DAVAMS-643: Refactored and improved the processing of payment component recurring tokens
+
 ## [3.1.3] - 2023-09-04
 ### Added
 - PLGMAG2V2-681: Added translations for title and placeholder HTML attributes
