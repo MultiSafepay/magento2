@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.3.1] - 2023-12-28
+### Fixed
+- PLGMAG2V2-715: Fixed an issue where pretransaction notifications would be processed for canceled orders
+
+### Changed
+- DAVAMS-700: Refactored in3 Direct to only make gender mandatory
+- PLGMAG2V2-714: POST notifications will now always be logged, instead of only when the verification fails
+- PLGMAG2V2-709: The DataAssignObserver for Card payments will now return early whenever the payload is already defined
+
+### Removed
+- DAVAMS-708: Removed Santander Betaal Per Maand
+
 ## [3.3.0] - 2023-11-30
 ### Fixed
 - PLGMAG2V2-705: Fixed a bug where the notification process would not finish due to an empty 'Auth' header in the POST webhook request
