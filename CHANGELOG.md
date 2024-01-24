@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.3.2] - 2024-01-24
+### Changed
+- PLGMAG2V2-718: Remove gateway codes from Edenred title
+- PLGMAG2V2-716: Refresh API Token and component after expiry
+- PLGMAG2V2-720: Only set order canceled on notification controller
+
 ## [3.3.1] - 2023-12-28
 ### Fixed
 - PLGMAG2V2-715: Fixed an issue where pretransaction notifications would be processed for canceled orders
