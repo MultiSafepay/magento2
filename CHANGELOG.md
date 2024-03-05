@@ -3,8 +3,8 @@ All notable changes to this project will be documented in this file.
 
 ## [3.4.0] - 2024-02-16
 ### Added
--DAVAMS-716: Add Multibanco
--DAVAMS-724: Add MB WAY
+- DAVAMS-716: Add Multibanco
+- DAVAMS-724: Add MB WAY
 
 ### Fixed
 - PLGMAG2V2-728: Add recurring data when customer_id is in additional info
