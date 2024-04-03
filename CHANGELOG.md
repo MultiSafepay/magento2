@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.5.0] - 2024-04-02
+### Added
+- PLGMAG2V2-731: Added VVV Cadeaubon gateway
+- DAVAMS-733: Added Pay After Delivery (BNPL_MF) gateway
+- PLGMAG2V2-736: Added browser info to the transaction
+- PLGMAG2V2-734: Added more integration tests for Magento Vault
+- DAVAMS-745: Fixed template id and added merge value for payment component
+
+### Fixed
+- PLGMAG2V2-733: Make frontend messages translatable
+- PLGMAG2V2-735: Fix an issue where wrong shipping cost is sent in OrderRequest when VAT is exempted during checkout
+
+### Changed
+- DAVAMS-756: Rebrand in3 B2C
+
 ## [3.4.0] - 2024-02-16
 ### Added
 - DAVAMS-716: Add Multibanco
