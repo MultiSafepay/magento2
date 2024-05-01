@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.5.1] - 2024-05-01
+### Fixed
+- PLGMAG2V2-738: Fixed orders stuck on pending after REST API Invoice creation
+- PLGMAG2V2-752: Fixed Payment Component Temporarily Not Available message after token expiry
+
+### Changed
+- PLGMAG2V2-739: PayPal, AliPay, AliPay Plus, CBC, KBC and Trustly now have the option to redirect to the MultiSafepay payment page when placing the order
+
 ## [3.5.0] - 2024-04-02
 ### Added
 - PLGMAG2V2-731: Added VVV Cadeaubon gateway
