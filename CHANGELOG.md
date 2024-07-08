@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.7.0] - 2024-07-05
+### Added
+- PLGMAG2V2-741: Added Manual Capture support for the Card payment, Visa, Mastercard and Maestro gateways. For more information about this feature, please check the [MultiSafepay Manual Capture documentation](https://docs.multisafepay.com/docs/manual-capture).
+- PLGMAG2V2-760: Added to the order payment description with which type of card was paid for the Card Payment method
+- PLGMAG2V2-768: Refund requests are now logged on debug mode
+
+### Fixed
+- PLGMAG2V2-759: Fixed an issue which happened because the getPath method no longer exists on DirectDebitConfigProvider
+- PLGMAG2V2-769: Fixed HTTP Response code being 0 in custom MultiSafepay HTTP Client
+
+### Changed
+PLGMAG2V2-757: Remove payment additionalData when the quote has been restored
+PLGMAG2V2-767: Google Pay Direct AbortError is not being displayed on screen anymore when user closes the Payment Request dialog
+
 ## [3.6.0] - 2024-05-15
 ### Added
 - DAVAMS-764: Add in3 B2B
