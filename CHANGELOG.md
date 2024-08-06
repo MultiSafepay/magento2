@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.7.1] - 2024-08-06
+### Fixed
+- PLGMAG2V2-753: Fixed an issue where a coupon could be decremented multiple times on multiple calls to the 'Cancel' controller
+- PLGMAG2V2-780: Fixed an issue where Store Credit would be returned twice
+
+### Changed
+- PLGMAG2V2-778: Coupons will now be canceled through the OrderService on order cancelation and will happen either through the Notification webhook request or when restoring the cart, depending on the type of transaction
+
 ## [3.7.0] - 2024-07-05
 ### Added
 - PLGMAG2V2-741: Added Manual Capture support for the Card payment, Visa, Mastercard and Maestro gateways. For more information about this feature, please check the [MultiSafepay Manual Capture documentation](https://docs.multisafepay.com/docs/manual-capture).
@@ -12,8 +20,8 @@ All notable changes to this project will be documented in this file.
 - PLGMAG2V2-769: Fixed HTTP Response code being 0 in custom MultiSafepay HTTP Client
 
 ### Changed
-PLGMAG2V2-757: Remove payment additionalData when the quote has been restored
-PLGMAG2V2-767: Google Pay Direct AbortError is not being displayed on screen anymore when user closes the Payment Request dialog
+- PLGMAG2V2-757: Remove payment additionalData when the quote has been restored
+- PLGMAG2V2-767: Google Pay Direct AbortError is not being displayed on screen anymore when user closes the Payment Request dialog
 
 ## [3.6.0] - 2024-05-15
 ### Added
