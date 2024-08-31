@@ -1,6 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.8.0] - 2024-08-30
+### Added
+- PLGMAG2V2-779: Added payment component for BNPL methods
+
+### Changed
+- PLGMAG2V2-785: Upgraded payment icon for MultiSafepay method
+
+### Removed
+- PLGMAG2V2-784: Removed issuers from iDEAL
+- PLGMAG2V2-706: Removed payment component Onload console.log
+
 ## [3.7.1] - 2024-08-06
 ### Fixed
 - PLGMAG2V2-753: Fixed an issue where a coupon could be decremented multiple times on multiple calls to the 'Cancel' controller
