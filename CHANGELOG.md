@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.8.1] - 2024-09-20
+### Fixed
+- PLGMAG2V2-794: Fixed an issue that sometimes occurred after the last update related with placing an Apple Pay and Google Pay transaction
+
+### Changed
+- DAVAMS-795: Rebrand the logo's, titles and labels from AfterPay to Riverty
+
 ## [3.8.0] - 2024-08-30
 ### Added
 - PLGMAG2V2-779: Added payment component for BNPL methods
