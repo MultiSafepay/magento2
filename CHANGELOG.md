@@ -1,6 +1,22 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.9.0] - 2025-01-09
+### Added
+- DAVAMS-817: Added the Bizum payment method
+- DAVAMS-852: Add the Billink payment method
+- PLGMAG2V2-814: Added instructions field to payment methods
+- PLGMAG2V2-788: Added coupon names to item names for more clarity about which coupon was used
+- PLGMAG2V2-809: Added the transaction ID to the comment in the order overview for orders canceled by MultiSafepay
+
+### Fixed
+- PLGMAG2V2-805: Fixed payment_review orders unable to be canceled
+- PLGMAG2V2-647: Fixed Fast Checkout duplicated transactions
+
+### Removed
+- PLGMAG2V2-810: Removed deprecated methods: Santander, Giropay, Sofort, Request to pay and Dotpay
+- DAVAMS-869: Refunding has been disabled for Multibanco
+
 ## [3.8.1] - 2024-09-20
 ### Fixed
 - PLGMAG2V2-794: Fixed an issue that sometimes occurred after the last update related with placing an Apple Pay and Google Pay transaction
