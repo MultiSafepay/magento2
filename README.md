@@ -25,7 +25,7 @@ MultiSafepay is a collecting payment service provider, which means we take care 
 ## Prerequisites
 
 - You will need a [MultiSafepay account](https://testmerchant.multisafepay.com/signup). Consider a test account first.
-- Magento Open Source version 2.3.x & 2.4.x
+- Magento Open Source version 2.3.6+ & 2.4.x
 - PHP 7.2+
 
 ## License
