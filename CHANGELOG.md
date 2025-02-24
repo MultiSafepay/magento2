@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.9.1] - 2025-02-24
+### Fixed
+- PLGMAG2V2-826: Fix uncleared orders not being able to be invoiced
+- PLGMAG2V2-823: Fix Fooman surcharge rate calculation above 100%
+
+### Changed
+- PLGMAG2V2-829: Enable Sofort and Dotpay payment methods
+- PLGMAG2V2-815: Add delay for cancel controller to wait for order to cancel
+
+### Removed
+- DAVAMS-840: Remove gender requirement for in3
+
 ## [3.9.0] - 2025-01-09
 ### Added
 - DAVAMS-817: Added the Bizum payment method
