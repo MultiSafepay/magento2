@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.10.0] - 2025-04-02
+### Added
+- PLGMAG2V2-831: Added invoice_url to invoice update request for E-invoicing
+- PLGMAG2V2-832: Added setting for adding iDEAL payment page step
+
+### Fixed
+- PLGMAG2V2-835: Fixed broken Einvoicing refund
+- HYVA-31: Fixed Cart Alive Issue in Hyvä Checkout
+
+### Removed
+- PLGMAG2V2-838: Removed .svg as allowed file type for generic gateway image upload
+
 ## [3.9.1] - 2025-02-24
 ### Fixed
 - PLGMAG2V2-826: Fix uncleared orders not being able to be invoiced
