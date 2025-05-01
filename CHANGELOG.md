@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.10.1] - 2025-05-01
+### Fixed
+- PLGMAG2V2-840: Fix Monolog issue in Magento 2.4.8, thanks to @jissereitsma
+- PLGMAG2V2-841: Fix shopping cart refund issue due to version comparison bug
+- PLGMAG2V2-842: Fix PHP 8.4 deprecations
+
+### Changed
+- MAGWIRE-32: Move some generic gateway logic to own util
+
 ## [3.10.0] - 2025-04-02
 ### Added
 - PLGMAG2V2-831: Added invoice_url to invoice update request for E-invoicing
