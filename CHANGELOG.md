@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.12.0] - 2025-07-09
+### Added
+- PLGMAG2V2-850: Added customer company name to the order request
+- PLGMAG2V2-856: Added logging for payment component requests
+
+### Fixed
+- PLGMAG2V2-854: Fixed Fooman Surcharges not being picked up for BNPL refunds
+- PLGMAG2V2-853: Fixed BNPL refund processing of bundle product items with non dynamic pricing
+- PLGMAG2V2-855: Fixed an issue with restoring the cart when using the browser back button on the payment page for third party checkouts like Amasty Checkout (Pro)
+
 ## [3.11.0] - 2025-05-20
 ### Fixed
 - PLGMAG2V2-846: Fix an issue with some orders going back to pending payment right after customer account creation after checkout
