@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.13.1] - 2025-08-22
+### Fixed
+- PLGMAG2V2-864: Fixed automatic gateway detection switch for generic giftcards
+- PLGMAG2V2-855: Fixed an issue with restoring the cart when using the browser back button on the payment page for Amasty Checkout (Pro) (Now also fixed for Magento version 2.3.7)
+
 ## [3.13.0] - 2025-07-29
 ### Added
 - PLGMAG2V2-852: Added support for Bancontact WIP in Magento Vault
