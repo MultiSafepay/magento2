@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.14.0] - 2025-09-12
+### Changed
+- PLGMAG2V2-872: Changed it so that payment links for bank transfer transactions are immediately added as an order comment, instead of on 'Initialized' status notification
+- PLGMAG2V2-867: Improved when to save the quote on the Cancel controller, it will now save if the payment actually has any additional information that needs to be removed
+- PLGMAG2V2-868: Updated the American Express fallback icon to the latest version
+
+### Removed
+- DAVAMS-918: Deprecated Zinia payment method
+
 ## [3.13.1] - 2025-08-22
 ### Fixed
 - PLGMAG2V2-864: Fixed automatic gateway detection switch for generic giftcards
