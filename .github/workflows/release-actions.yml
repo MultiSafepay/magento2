@@ -1,96 +1,166 @@
 name: Release Actions
 on:
-    pull_request:
-        branches:
-            - master
-        types: [ closed ]
+  pull_request:
+    branches:
+      - master
+    types: [ closed ]
 defaults:
-    run:
-        shell: bash
+  run:
+    shell: bash
 jobs:
-    integration-tests:
-        name: Release Actions
-        if: ${{ github.event.pull_request.merged == true && contains(github.head_ref, 'release/') && !contains(github.head_ref, 'revert')}}
-        runs-on: ubuntu-latest
-        services:
-            mysql:
-                image: mysql:5.7
-                env:
-                    MYSQL_ROOT_PASSWORD: root
-                    MYSQL_SQL_TO_RUN: 'GRANT ALL ON *.* TO "root"@"%";'
-                ports:
-                    - 3306:3306
-                options: --tmpfs /tmp:rw --tmpfs /var/lib/mysql:rw --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-            es:
-                image: docker.io/wardenenv/elasticsearch:7.8
-                ports:
-                    - 9200:9200
-                env:
-                    'discovery.type': single-node
-                    'xpack.security.enabled': false
-                    ES_JAVA_OPTS: "-Xms64m -Xmx512m"
-                options: --health-cmd="curl localhost:9200/_cluster/health?wait_for_status=yellow&timeout=60s" --health-interval=10s --health-timeout=5s --health-retries=3
-            redis:
-                image: redis
-                ports:
-                    - 6379:6379
-                options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
-        steps:
-            -   uses: actions/checkout@v2
-            -   uses: extdn/github-actions-m2/magento-mess-detector@master
-            -   name: Get Composer Cache Directory
-                id: composer-cache
-                run: |
-                    echo "::set-output name=dir::$(composer -g config cache-files-dir)"
-            -   uses: actions/cache@v2
-                with:
-                    path: ${{ steps.composer-cache.outputs.dir }}
-                    key: ${{ runner.os }}-composer
-            -   name: M2 Integration Tests on 2.3.7-p3
-                uses: MultiSafepay/github-actions-m2/magento-integration-tests/7.3@with-coverage-support
-                env:
-                    MAGENTO_MARKETPLACE_USERNAME: ${{ secrets.MAGENTO_MARKETPLACE_USERNAME }}
-                    MAGENTO_MARKETPLACE_PASSWORD: ${{ secrets.MAGENTO_MARKETPLACE_PASSWORD }}
-                    GLOBAL_GITHUB_TOKEN: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
-                    COMPOSER_NAME: multisafepay/magento2
-                    CE_VERSION: 2.3.7-p3
-                    CURRENT_HEAD_REF: ${{ github.event.pull_request.head.ref }}
-                with:
-                    magento_pre_install_script: .github/workflows/magento-integration-tests-pre-phpunit.sh
-                    magento_post_install_script: .github/workflows/releases-integration-tests-post-install-additional.sh
-                    phpunit_file: .github/workflows/phpunit.xml
-            -   name: M2 Integration Tests on 2.4.3-p1
-                uses: MultiSafepay/github-actions-m2/magento-integration-tests/7.4@with-coverage-support
-                env:
-                    MAGENTO_MARKETPLACE_USERNAME: ${{ secrets.MAGENTO_MARKETPLACE_USERNAME }}
-                    MAGENTO_MARKETPLACE_PASSWORD: ${{ secrets.MAGENTO_MARKETPLACE_PASSWORD }}
-                    GLOBAL_GITHUB_TOKEN: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
-                    COMPOSER_NAME: multisafepay/magento2
-                    PHPUNIT_FILE: .github/workflows/phpunit.xml
-                    CE_VERSION: 2.4.2
-                    CURRENT_HEAD_REF: ${{ github.event.pull_request.head.ref }}
-                with:
-                    magento_pre_install_script: .github/workflows/magento-integration-tests-pre-phpunit.sh
-                    magento_post_install_script: .github/workflows/releases-integration-tests-post-install-additional.sh
-                    phpunit_file: .github/workflows/phpunit.xml
-            -   name: Get Release Version
-                run: echo "::set-output name=version::$(cat composer.json | grep version | awk -F'\"' '{print $4}')"
-                id: version
-            -   name: Get Changelog Entry
-                id: changelog_reader
-                uses: mindsers/changelog-reader-action@v2
-                with:
-                    validation_depth: 10
-                    version: ${{steps.version.outputs.version}}
-                    path: ./CHANGELOG.md
-            -   name: Create Release
-                id: create_release
-                uses: actions/create-release@latest
-                env:
-                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                with:
-                    tag_name: ${{steps.version.outputs.version}}
-                    release_name: ${{steps.version.outputs.version}}
-                    body: ${{steps.changelog_reader.outputs.changes}}
-                    draft: false
-                    prerelease: false
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    env:
+      TOKEN: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
+
+    strategy:
+      matrix:
+        include:
+          - PHP_VERSION: php74-fpm
+            MAGENTO_VERSION: 2.3.7-p4
+          - PHP_VERSION: php82-fpm
+            MAGENTO_VERSION: 2.4.6-p12
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Start Docker
+        run: docker run --detach --name magento-project-community-edition michielgerritsen/magento-project-community-edition:${{ matrix.PHP_VERSION }}-magento${{ matrix.MAGENTO_VERSION }}
+
+      - name: Upload our code into the docker container
+        run: docker cp "$(pwd)" magento-project-community-edition:/data/extensions/
+
+      - name: Extract branch name
+        id: extract_branch
+        shell: bash
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+
+      - name: Pick repositories and branches
+        id: pick
+        shell: bash
+        run: |
+          check_branch() {
+            local OWNER="$1"
+            local REPO="$2"
+            local BRANCH="$3"
+            local DEFAULT="$4"
+
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+              -H "Authorization: Bearer $TOKEN" \
+              "https://api.github.com/repos/$OWNER/$REPO/branches/$BRANCH")
+
+            if [ "$STATUS" -eq 200 ]; then
+              echo "$BRANCH"
+            else
+              echo "$DEFAULT"
+            fi
+          }
+
+          OWNER="$(echo "${GITHUB_REPOSITORY}" | cut -d'/' -f1)"
+          CURRENT_REPO="$(echo "${GITHUB_REPOSITORY}" | cut -d'/' -f2)"
+          BRANCH="${{ steps.extract_branch.outputs.branch }}"
+          DEFAULT="master"
+
+          if [[ "$CURRENT_REPO" == *internal* ]]; then
+            FRONTEND_REPO="magento2-internal-frontend"
+            ADMIN_REPO="magento2-internal-adminhtml"
+            CORE_REPO="magento2-internal-core"
+            SDK_REPO="php-sdk-internal"
+          else
+            FRONTEND_REPO="magento2-frontend"
+            ADMIN_REPO="magento2-adminhtml"
+            CORE_REPO="magento2-core"
+            SDK_REPO="php-sdk"
+          fi
+
+          FRONTEND_BRANCH=$(check_branch "$OWNER" "$FRONTEND_REPO" "$BRANCH" "$DEFAULT")
+          ADMIN_BRANCH=$(check_branch "$OWNER" "$ADMIN_REPO" "$BRANCH" "$DEFAULT")
+          CORE_BRANCH=$(check_branch "$OWNER" "$CORE_REPO" "$BRANCH" "$DEFAULT")
+          SDK_BRANCH=$(check_branch "$OWNER" "$SDK_REPO" "$BRANCH" "$DEFAULT")
+
+          echo "frontend-repo=$OWNER/$FRONTEND_REPO" >> $GITHUB_OUTPUT
+          echo "frontend-branch=$FRONTEND_BRANCH" >> $GITHUB_OUTPUT
+          echo "admin-repo=$OWNER/$ADMIN_REPO" >> $GITHUB_OUTPUT
+          echo "admin-branch=$ADMIN_BRANCH" >> $GITHUB_OUTPUT
+          echo "core-repo=$OWNER/$CORE_REPO" >> $GITHUB_OUTPUT
+          echo "core-branch=$CORE_BRANCH" >> $GITHUB_OUTPUT
+          echo "sdk-repo=$OWNER/$SDK_REPO" >> $GITHUB_OUTPUT
+          echo "sdk-branch=$SDK_BRANCH" >> $GITHUB_OUTPUT
+
+      - uses: actions/checkout@v5
+        with:
+          repository: ${{ steps.pick.outputs.admin-repo }}
+          ref: ${{ steps.pick.outputs.admin-branch }}
+          token: ${{ env.TOKEN }}
+          path: magento2-frontend
+
+      - uses: actions/checkout@v5
+        with:
+          repository: ${{ steps.pick.outputs.admin-repo }}
+          ref: ${{ steps.pick.outputs.admin-branch }}
+          token: ${{ env.TOKEN }}
+          path: magento2-adminhtml
+
+      - uses: actions/checkout@v5
+        with:
+          repository: ${{ steps.pick.outputs.core-repo }}
+          ref: ${{ steps.pick.outputs.core-branch }}
+          token: ${{ env.TOKEN }}
+          path: magento2-core
+
+      - uses: actions/checkout@v5
+        with:
+          repository: ${{ steps.pick.outputs.sdk-repo }}
+          ref: ${{ steps.pick.outputs.sdk-branch }}
+          token: ${{ env.TOKEN }}
+          path: php-sdk
+
+      - name: Create directories in the container
+        run: |
+          docker exec magento-project-community-edition mkdir -p /data/extensions/magento2-frontend
+          docker exec magento-project-community-edition mkdir -p /data/extensions/magento2-adminhtml
+          docker exec magento-project-community-edition mkdir -p /data/extensions/magento2-core
+          docker exec magento-project-community-edition mkdir -p /data/extensions/php-sdk
+
+      - name: Copy repositories into the container
+        run: |
+          docker cp "${{ github.workspace }}/magento2-frontend/." magento-project-community-edition:/data/extensions/magento2-frontend
+          docker cp "${{ github.workspace }}/magento2-adminhtml/." magento-project-community-edition:/data/extensions/magento2-adminhtml
+          docker cp "${{ github.workspace }}/magento2-core/." magento-project-community-edition:/data/extensions/magento2-core
+          docker cp "${{ github.workspace }}/php-sdk/." magento-project-community-edition:/data/extensions/php-sdk
+
+      - name: Install the extension in Magento
+        run: docker exec magento-project-community-edition composer require multisafepay/magento2
+
+      - name: Run tests
+        run: docker exec magento-project-community-edition bash -c "php bin/magento deploy:mode:set developer && cd /data/dev/tests/integration/ && ../../../vendor/bin/phpunit"
+
+      - name: Get Release Version
+        id: version
+        run: echo "version=$(jq -r .version composer.json)" >> $GITHUB_OUTPUT
+
+      - name: Get Changelog Entry
+        id: changelog_reader
+        uses: mindsers/changelog-reader-action@v2
+        with:
+          validation_depth: 10
+          version: ${{ steps.version.outputs.version }}
+          path: ./CHANGELOG.md
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.version.outputs.version }}
+          release_name: ${{ steps.version.outputs.version }}
+          body: ${{ steps.changelog_reader.outputs.changes }}
+          draft: false
+          prerelease: false
