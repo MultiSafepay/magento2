@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.15.0] - 2026-01-21
+### Added
+- PLGMAG2V2-871: Added changes that enable Google Analytics cross browser/device tracking
+- PLGMAG2V2-881: Added a REST API endpoint to trigger the notification through the Magento 2 API
+
+### Fixed
+- PLGMAG2V2-882: Fixed an issue where an old cart overwrites new cart items when an order was previously placed but not finished
+
+### Changed
+- PLGMAG2V2-861: MultiBanco now initialises in pending state
+- PLGMAG2V2-880: Improved the logs for the 'cancel' & 'success' controllers
+
+### Removed
+- PLGMAG2V2-810: Deprecated the Sofort payment method
+
 ## [3.14.0] - 2025-09-12
 ### Changed
 - PLGMAG2V2-872: Changed it so that payment links for bank transfer transactions are immediately added as an order comment, instead of on 'Initialized' status notification

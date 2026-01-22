@@ -1,11 +1,11 @@
 {
     "name": "multisafepay/magento2",
     "description": "MultiSafepay module suite for Magento 2",
-    "version": "3.14.0",
+    "version": "3.15.0",
     "require": {
-        "multisafepay/magento2-core": "3.14.0",
-        "multisafepay/magento2-frontend": "2.12.0",
-        "multisafepay/magento2-adminhtml": "1.35.0",
+        "multisafepay/magento2-core": "3.15.0",
+        "multisafepay/magento2-frontend": "2.13.0",
+        "multisafepay/magento2-adminhtml": "1.36.0",
         "multisafepay/magento2-catalog-inventory": "1.0.3",
         "multisafepay/magento2-msi": "1.0.2"
     },
