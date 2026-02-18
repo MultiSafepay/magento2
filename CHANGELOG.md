@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.16.0] - 2026-02-18
+### Added
+- DAVAMS-913: Added several EAA improvements
+
+### Changed
+- PLGMAG2V2-886: When retrieving the order for GET notification requests, we now first check if the transaction Order ID matches the Magento Order ID
+- PLGMAG2V2-884: Changed when to retrieve issuers and the api_token from the MultiSafepay API, e.g. it will not happen on the cart page anymore
+- DAVAMS-954: Rebranded iDEAL - Wero and in3
+
+### Fixed
+- PLGMAG2V2-885: Fixed an issue with E-invoicing Payment Component Direct transactions not being able to be placed
+
 ## [3.15.0] - 2026-01-21
 ### Added
 - PLGMAG2V2-871: Added changes that enable Google Analytics cross browser/device tracking
