@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [4.1.0] - 2026-04-29
+### Added
+- PLGMAG2V2-893: Prevent duplicate completed webhooks from overwriting order totals
+- DAVAMS-990: Added used card info to Apple Pay and Google Pay payment methods
+- PLGMAG2V2-890: Added prerequisite acknowledgement validation for Apple Pay and Google Pay direct buttons configuration activation
+
+### Fixed
+- PLGMAG2V2-900: Fixed PriceUtil tax calculations for sales display settings
+- PLGMAG2V2-904: Fixed issue where gift cards were always using the fallback icon
+
+### Changed
+- PLGMAG2V2-887: Changed instances where we were using getRealOrderId() to getIncrementId()
+- PLGMAG2V2-891: Handle ApiException in GetNotification
+
 ## [4.0.0] - 2026-03-17
 ### Added
 - PLGMAG2V2-888: Implemented token-based redirect handling and removed the dependency on the checkout session when redirecting to the payment page.
