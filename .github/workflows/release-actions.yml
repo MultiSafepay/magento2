@@ -141,8 +141,15 @@ jobs:
         run: docker exec magento-project-community-edition composer require multisafepay/magento2
 
       - name: Run tests
-        run: docker exec magento-project-community-edition bash -c "php bin/magento deploy:mode:set developer && cd /data/dev/tests/integration/ && ../../../vendor/bin/phpunit ../../../vendor/multisafepay"
-
+        run: |
+          docker exec magento-project-community-edition bash -c "
+            php bin/magento deploy:mode:set developer &&
+            cd /data/dev/tests/integration/ &&
+            ../../../vendor/bin/phpunit \
+              ../../../vendor/multisafepay/magento2-core \
+              ../../../vendor/multisafepay/magento2-frontend \
+              ../../../vendor/multisafepay/magento2-adminhtml
+          "
   release:
     name: Create GitHub Release
     needs: build
