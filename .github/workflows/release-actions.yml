@@ -143,7 +143,6 @@ jobs:
       - name: Run tests
         run: |
           docker exec magento-project-community-edition bash -c "
-            php bin/magento deploy:mode:set developer &&
             cd /data/dev/tests/integration/ &&
             ../../../vendor/bin/phpunit \
               ../../../vendor/multisafepay/magento2-core \
