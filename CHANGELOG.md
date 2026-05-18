@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [4.2.0] - 2026-05-18
+### Added
+- PLGMAG2V2-906: Added a new controller that can be used to retrieve a MultiSafepay API Token
+
+### Fixed
+- PLGMAG2V2-906: Fixed an issue where a 'Temporary Unavailable' message would be shown after being idle in the checkout for a while, due to the API token expiring and not being refreshed
+
 ## [4.1.0] - 2026-04-29
 ### Added
 - PLGMAG2V2-893: Prevent duplicate completed webhooks from overwriting order totals
