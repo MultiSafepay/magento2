@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [4.3.0] - 2026-07-21
+### Added
+- PLGMAG2V2-912: Added a new configuration to show/hide payment method icons in the checkout
+
+### Fixed
+- PLGMAG2V2-911: Fixed custom success url not being used in new browser session
+
 ## [4.2.0] - 2026-05-18
 ### Added
 - PLGMAG2V2-906: Added a new controller that can be used to retrieve a MultiSafepay API Token
