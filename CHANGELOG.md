@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [4.4.0] - 2026-09-01
+### Changed
+- PLGMAG2V2-912: Bumped version of `multisafepay/magento2-core` to `^3.21` to fix the show/hide payment method icons configuration in the checkout
+
+### Fixed
+- PLGMAG2V2-913: Fix PriceUtil cart item + shipping totals now reconcile with grand total across all tax configurations
+
 ## [4.3.0] - 2026-07-21
 ### Added
 - PLGMAG2V2-912: Added a new configuration to show/hide payment method icons in the checkout
